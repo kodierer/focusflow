@@ -9,7 +9,7 @@ SET "RED=[91m"
 SET "RESET=[0m"
 
 echo.
-echo %YELLOW%🚀 FocusFlow Launch Automation Script%RESET%
+echo %YELLOW% FocusFlow Launch Automation Script%RESET%
 echo %YELLOW%========================================%RESET%
 echo.
 
@@ -66,4 +66,3 @@ echo %GREEN%Estimated time to live: 1-2 days!%RESET%
 echo.
 
 pause
-

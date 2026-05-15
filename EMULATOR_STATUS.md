@@ -1,6 +1,6 @@
 # ⚠️ ANDROID EMULATOR / SIMULATION STATUS
 
-## 🔍 HARDWARE CHECK
+##  HARDWARE CHECK
 
 ```
 ✅ Android Emulator:        INSTALLIERT
@@ -11,7 +11,7 @@
 
 ---
 
-## 🤔 WARUM KANN ICH DIE APP HIER NICHT STARTEN?
+##  WARUM KANN ICH DIE APP HIER NICHT STARTEN?
 
 ### **Grund 1: Kein JDK in PATH**
 ```
@@ -46,7 +46,7 @@ Kann nur:
 
 ---
 
-## 🚀 ALTERNATIVEN (PRAKTISCHE LÖSUNGEN)
+##  ALTERNATIVEN (PRAKTISCHE LÖSUNGEN)
 
 ### **Option 1: GitHub Actions APK DOWNLOADEN** ⭐ EMPFOHLEN
 ```
@@ -92,7 +92,7 @@ VORTEIL:
 
 ---
 
-## 📱 SCHNELLSTE LÖSUNG FÜR DICH
+##  SCHNELLSTE LÖSUNG FÜR DICH
 
 ### **JETZT (ich mache es):**
 Ich stelle dir eine **Installations-Anleitung** bereit, wie du die APK von GitHub Actions downloaden und auf deinem echten Android-Gerät (oder Emulator) installierest.
@@ -105,7 +105,7 @@ Ich stelle dir eine **Installations-Anleitung** bereit, wie du die APK von GitHu
    ```
 
 2. **Neuesten erfolgreichen Build finden** (grünes Häkchen ✅)
-   - Sollte heißen: "🧪 Add Comprehensive Unit Test Suite"
+   - Sollte heißen: " Add Comprehensive Unit Test Suite"
    - Status: "Build successful"
 
 3. **Artifacts downloaden:**
@@ -140,7 +140,7 @@ Ich stelle dir eine **Installations-Anleitung** bereit, wie du die APK von GitHu
 
 ---
 
-## 🎯 MEIN ANGEBOT
+##  MEIN ANGEBOT
 
 Ich kann dir JETZT eine **detaillierte APK-Installation-Anleitung** erstellen damit du:
 1. APK von GitHub herunterlädst ✅
@@ -151,7 +151,7 @@ Soll ich das machen?
 
 ---
 
-## 📊 CURRENT STATUS
+##  CURRENT STATUS
 
 | Komponente | Status | Aktion |
 |-----------|--------|--------|
@@ -164,7 +164,7 @@ Soll ich das machen?
 
 ---
 
-## 🎁 WAS ICH MACHEN KANN
+##  WAS ICH MACHEN KANN
 
 ```
 ✅ APK-Installation Guide erstellen
@@ -178,5 +178,4 @@ Soll ich das machen?
 
 **ANTWORT**: Die App kannst du sofort auf deinem Gerät testen! Nur nicht direkt von hier aus starten (wegen Terminal-Limitation + Java-Setup). Aber in 5 Minuten ist die APK installiert!
 
-Soll ich die **APK Installation Guide** jetzt erstellen? 🚀
-
+Soll ich die **APK Installation Guide** jetzt erstellen? 

@@ -1,10 +1,10 @@
-# 📱 FOCUSFLOW APK - 5 MINUTEN INSTALL GUIDE
+#  FOCUSFLOW APK - 5 MINUTEN INSTALL GUIDE
 
 ## ⚡ SCHNELLSTART - Wähle deine Variante
 
 ---
 
-## 🎯 OPTION 1: Auf ECHTEM ANDROID-GERÄT (über USB) ⭐ EASIEST
+##  OPTION 1: Auf ECHTEM ANDROID-GERÄT (über USB) ⭐ EASIEST
 
 ### **Voraussetzungen:**
 - Android Smartphone/Tablet
@@ -40,18 +40,18 @@ adb install C:\Users\fmoss\Downloads\app-release.apk
 adb install "C:\Users\fmoss\Downloads\app-release.apk"
 ```
 
-#### 4️⃣ **Fertig! 🎉**
+#### 4️⃣ **Fertig! **
 ```
 App erscheint automatisch auf deinem Handy
 → FocusFlow öffnen
-→ TESTEN! 🚀
+→ TESTEN! 
 ```
 
 **Zeit: ~2 Minuten**
 
 ---
 
-## 🖥️ OPTION 2: Auf ANDROID EMULATOR (virtuell)
+## ️ OPTION 2: Auf ANDROID EMULATOR (virtuell)
 
 ### **Voraussetzungen:**
 - Android Studio installiert
@@ -89,14 +89,14 @@ adb -s emulator-5554 install app-release.apk
 1. Emulator-Screen: Alle Apps aufrufen
 2. "FocusFlow" suchen
 3. Klicken
-4. APP LÄUFT! 🎉
+4. APP LÄUFT! 
 ```
 
 **Zeit: ~5 Minuten**
 
 ---
 
-## 🚀 OPTION 3: Direkt über Android Studio (Gui)
+##  OPTION 3: Direkt über Android Studio (Gui)
 
 ### **Wenn du Android Studio verwendest:**
 
@@ -120,7 +120,7 @@ Oder: Grüner Play-Button (top-bar)
 
 #### 4️⃣ **Warten + Geniessen**
 ```
-App wird kompiliert → Installiert → LÄUFT! 🚀
+App wird kompiliert → Installiert → LÄUFT! 
 (Braucht 2-3 Min zum Bauen)
 ```
 
@@ -128,7 +128,7 @@ App wird kompiliert → Installiert → LÄUFT! 🚀
 
 ---
 
-## 🎮 NACH INSTALLATION: APP TESTEN
+##  NACH INSTALLATION: APP TESTEN
 
 ### **Hauptscreen:**
 ```
@@ -151,9 +151,9 @@ Scroll down:
 ### **Statistiken**
 ```
 3 Cards unten:
-- 🏆 Sessions (Sitzungen abgeschlossen)
+-  Sessions (Sitzungen abgeschlossen)
 - ⏱️ Fokus Zeit (Minuten fokussiert heute)
-- 📊 Heute (Stunden fokussiert)
+-  Heute (Stunden fokussiert)
 ```
 
 ### **Test-Workflow:**
@@ -220,7 +220,7 @@ Häufig: Fehlende Permissions
 
 ---
 
-## 📊 INSTALLATION METHODE VERGLEICH
+##  INSTALLATION METHODE VERGLEICH
 
 | Methode | Zeit | Einfachheit | Gerät |
 |---------|------|-------------|-------|
@@ -241,13 +241,13 @@ Häufig: Fehlende Permissions
 - [ ] Timer testen (Start/Pause/Reset)
 - [ ] Einstellungen testen
 - [ ] Statistiken prüfen
-- [ ] 🎉 Fertig!
+- [ ]  Fertig!
 
 ---
 
-## 🎉 GLÜCKWUNSCH!
+##  GLÜCKWUNSCH!
 
-Deine **FocusFlow App** läuft jetzt! 🚀
+Deine **FocusFlow App** läuft jetzt! 
 
 Der nächste Schritt ist: **Google Play Store Upload**
 
@@ -257,5 +257,4 @@ Siehe: DEPLOYMENT_GUIDE.md
 
 **Geschätzte Testzeit: 5 Minuten ⏱️**
 
-Viel Spaß beim Testen! 📱
-
+Viel Spaß beim Testen! 

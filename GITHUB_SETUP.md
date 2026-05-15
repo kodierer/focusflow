@@ -1,4 +1,4 @@
-# 🚀 GitHub SETUP - Für Konto "kodierer"
+#  GitHub SETUP - Für Konto "kodierer"
 
 ## ✅ Was bereits erledigt ist
 
@@ -12,7 +12,7 @@ Git Repository ist bereits lokal initialisiert und committed:
 
 ---
 
-## 📝 NÄCHSTE SCHRITT: GitHub Repository erstellen
+##  NÄCHSTE SCHRITT: GitHub Repository erstellen
 
 Du benötigst noch ein **leeres Repository** auf GitHub. So erstellst du es:
 
@@ -42,7 +42,7 @@ Oder:
 
 ---
 
-## 🔗 Nach Repository-Erstellung: Push zur GitHub
+##  Nach Repository-Erstellung: Push zur GitHub
 
 Sobald dein Repository erstellt ist, siehst du auf GitHub eine Anleitung.
 Diese genauen Befehle ausführen:
@@ -60,7 +60,7 @@ git push -u origin main
 
 ---
 
-## 💾 ODER: Ich mache es für dich (wenn du mir die Token gibst)
+##  ODER: Ich mache es für dich (wenn du mir die Token gibst)
 
 Wenn du möchtest, dass ich es automatisch tue:
 
@@ -73,7 +73,7 @@ Wenn du möchtest, dass ich es automatisch tue:
 
 ---
 
-## 🔄 Aktuell lokal vorbereitete Push-Befehle
+##  Aktuell lokal vorbereitete Push-Befehle
 
 Die App ist bereit. Hier sind die Befehle zum Pushen:
 
@@ -112,16 +112,16 @@ Automatische GitHub Actions werden starten:
 
 ---
 
-## 🎯 Zusammenfassung
+##  Zusammenfassung
 
 | Schritt | Status | Aktion |
 |---------|--------|--------|
 | 1. Lokal Git initialisieren | ✅ DONE | – |
 | 2. Initial Commit | ✅ DONE | – |
-| 3. **GitHub Repo erstellen** | 📝 TODO | Gehe zu github.com/new |
-| 4. **Remote hinzufügen** | 📝 TODO | Führe git commands aus |
-| 5. **Zu GitHub pushen** | 📝 TODO | `git push -u origin main` |
-| 6. Actions bauen | 🔄 AUTOMATIC | GitHub macht es selbst |
+| 3. **GitHub Repo erstellen** |  TODO | Gehe zu github.com/new |
+| 4. **Remote hinzufügen** |  TODO | Führe git commands aus |
+| 5. **Zu GitHub pushen** |  TODO | `git push -u origin main` |
+| 6. Actions bauen |  AUTOMATIC | GitHub macht es selbst |
 
 ---
 
@@ -146,12 +146,11 @@ Nach dem Push:
 - ✅ Repository ist on GitHub
 - ✅ GitHub Actions baut automatisch
 - ✅ APK/Bundle zum Download bereit
-- ✅ Bereit für Google Play! 🎉
+- ✅ Bereit für Google Play! 
 
 ---
 
 **Username**: kodierer  
 **Repo URL**: https://github.com/kodierer/focusflow  
 **Branch**: main  
-**Status**: Ready to push! 🚀
-
+**Status**: Ready to push! 

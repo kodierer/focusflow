@@ -6,7 +6,7 @@ Die App ist komplett entwickelt und produktionsbereit. Hier ist, was zu tun ist:
 
 ---
 
-## 🚀 SOFORT STARTEN (3 Optionen)
+##  SOFORT STARTEN (3 Optionen)
 
 ### Option 1: GitHub Actions (EINFACHSTE) ⭐ EMPFOHLEN
 ```bash
@@ -43,7 +43,7 @@ CMD ["./gradlew", "bundleRelease"]
 
 ---
 
-## 📦 WAS IST IMPLEMENTIERT
+##  WAS IST IMPLEMENTIERT
 
 ### Kern-Features ✅
 - [x] Pomodoro-Timer (25/5 min, anpassbar)
@@ -70,7 +70,7 @@ CMD ["./gradlew", "bundleRelease"]
 
 ---
 
-## 📂 PROJEKTSTRUKTUR
+##  PROJEKTSTRUKTUR
 
 ```
 MyApplication/
@@ -105,7 +105,7 @@ MyApplication/
 
 ---
 
-## 🎯 NÄCHSTE SCHRITTE (Priorisiert)
+##  NÄCHSTE SCHRITTE (Priorisiert)
 
 ### SOFORT (Heute)
 1. **GitHub Repository erstellen**
@@ -169,7 +169,7 @@ adb logcat | grep myapplication
 
 ---
 
-## 💡 VERSIONING & RELEASES
+##  VERSIONING & RELEASES
 
 ### Current Version
 - **v1.0.0**: MVP Release
@@ -183,7 +183,7 @@ adb logcat | grep myapplication
 
 ---
 
-## 📊 GESCHÄTZTER TIMELINE
+##  GESCHÄTZTER TIMELINE
 
 | Phase | Timing | Aufwand |
 |-------|--------|---------|
@@ -191,12 +191,12 @@ adb logcat | grep myapplication
 | **Testing** | 1-2 Tage | Minimal |
 | **Google Play Upload** | 1 Tag | Sehr einfach |
 | **Review** | 1-24 Stunden | Google (Automatisch) |
-| **Go Live** | Sofort | 🚀 |
+| **Go Live** | Sofort |  |
 | **Marketing Ramp-up** | 2-4 Wochen | Kontinuierlich |
 
 ---
 
-## 💰 FINANZIELLE CHANCEN
+##  FINANZIELLE CHANCEN
 
 ### Conservative Estimate
 - **Monat 1**: 100-500 Downloads, €50-200 Revenue
@@ -210,7 +210,7 @@ adb logcat | grep myapplication
 
 ---
 
-## 🎯 SUCCESS METRICS (Zu überwachen)
+##  SUCCESS METRICS (Zu überwachen)
 
 Nach Launch tracken:
 - **DAU** (Daily Active Users): Ziel 1000+
@@ -242,7 +242,7 @@ A: ~2-3 Wochen (Upload, Review, dann Live!)
 
 ---
 
-## 🚀 LOS GEHT'S!
+##  LOS GEHT'S!
 
 **TL;DR:**
 ```bash
@@ -258,17 +258,16 @@ Artifacts → app-release-apk
 # 4. Google Play upload
 play.google.com/console → create app
 
-# 5. 🎉 LIVE!
+# 5.  LIVE!
 ```
 
 ---
 
-**Die App ist bereit für die Welt! 🌍**
+**Die App ist bereit für die Welt! **
 
-Viel Erfolg beim Launch! 🚀📈
+Viel Erfolg beim Launch! 
 
 Fragen? Siehe:
 - `DEPLOYMENT_GUIDE.md` für Details
 - `FUTURE_ENHANCEMENTS.kt` für Feature-Roadmap
 - `SETUP_GUIDE.md` für Entwicklung
-

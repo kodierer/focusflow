@@ -21,10 +21,10 @@ class AnalyticsRepositoryTest {
     fun setup() {
         mockContext = mock(Context::class.java)
         mockSharedPreferences = mock(SharedPreferences::class.java)
-
+        
         `when`(mockContext.getSharedPreferences("focus_timer_analytics", Context.MODE_PRIVATE))
             .thenReturn(mockSharedPreferences)
-
+        
         repository = AnalyticsRepository(mockContext)
     }
 
@@ -97,4 +97,3 @@ class AnalyticsRepositoryTest {
         }
     }
 }
-

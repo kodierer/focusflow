@@ -2,7 +2,7 @@
 
 Eine moderne, benutzerfreundliche Pomodoro-Timer App für Android mit Material 3 Design.
 
-## 🎯 Features
+##  Features
 
 ### ✨ Kernfunktionalität
 - **Pomodoro Timer**: 25 Minuten fokussierte Arbeit + 5 Minuten Pause (einstellbar)
@@ -10,7 +10,7 @@ Eine moderne, benutzerfreundliche Pomodoro-Timer App für Android mit Material 3
 - **Echtzeit-Farbwechsel**: Blau für Arbeit, Grün für Pause - visuelles Feedback
 - **Play/Pause/Reset**: Vollständige Timer-Kontrolle
 
-### 📊 Statistiken & Tracking
+###  Statistiken & Tracking
 - **Session-Counter**: Wie viele Sitzungen haben Sie heute abgeschlossen?
 - **Fokus-Zeit-Tracking**: Gesamte Minuten, die Sie fokussiert haben
 - **Tägliche Statistik**: Sehen Sie sofort, wie viele Stunden Sie heute gearbeitet haben
@@ -21,15 +21,15 @@ Eine moderne, benutzerfreundliche Pomodoro-Timer App für Android mit Material 3
 - **Flexible Pausenzeit**: 1-30 Minuten
 - **Live-Anpassung**: Ändern Sie die Einstellungen, wenn Sie Zeit haben
 
-### 🎨 Benutzeroberfläche
+###  Benutzeroberfläche
 - **Material 3 Design**: Modernes, zeitgemäßes Android-Design
 - **Vollbildmodus**: Maximales Ablenkungsfreies Erlebnis
 - **Große, lesbare Zahlen**: 80pt Timer-Display für mühelose Lesbarkeit
 - **Intuitive Kontrollen**: Große Touch-Ziele, einfache Navigation
 
-## 💡 Warum diese App?
+##  Warum diese App?
 
-### 📈 Marktpotenzial
+###  Marktpotenzial
 1. **Produktivitäts-Trend**: Der Pomodoro-Trend ist exponentiel wachsend
 2. **Breite Zielgruppe**: Schüler, Freelancer, Angestellte, Remote-Worker
 3. **Tägliche Nutzung**: Nutzer öffnen die App mehrmals pro Tag
@@ -46,13 +46,13 @@ Eine moderne, benutzerfreundliche Pomodoro-Timer App für Android mit Material 3
 - ~600 Zeilen Kotlin-Code
 - Schnell zu entwickeln, schnell zu deployen
 
-### 🚀 Konkurrenzvorteile
+###  Konkurrenzvorteile
 - Schlichtes, schönes Design (viele Konkurrenten haben hässliche UI)
 - Schnelle App (keine Bloat-Features)
 - Fokussiert auf das Wesentliche
 - Deutsch + später international
 
-## 📱 Technische Details
+##  Technische Details
 
 ### Stack
 - **Sprache**: Kotlin
@@ -75,15 +75,15 @@ MyApplication/app/src/main/java/com/example/myapplication/
         └── Type.kt
 ```
 
-## 🎮 Wie man die App nutzt
+##  Wie man die App nutzt
 
 1. **Starten**: App öffnen und "Start" drücken
 2. **Arbeiten**: Timer läuft 25 Minuten (einstellbar)
 3. **Pause**: Automatisch Pause (5 Minuten, einstellbar)
 4. **Wiederholen**: Neue Session startet automatisch
-5. **Tracken**: Sehen Sie Ihre Stats wachsen! 📈
+5. **Tracken**: Sehen Sie Ihre Stats wachsen! 
 
-## 🚀 Nächste Schritte zum App-Store
+##  Nächste Schritte zum App-Store
 
 ### Phase 1: MVP (Die aktuelle Version)
 - ✅ Timer-Funktionalität
@@ -107,13 +107,13 @@ MyApplication/app/src/main/java/com/example/myapplication/
 - [ ] Fokus-Musik Integration
 - [ ] Leaderboards
 
-## 💰 Monetarisierungsstrategie
+##  Monetarisierungsstrategie
 
 1. **Free Version**: Mit Banner-Ads
 2. **Premium (€2,99/Jahr)**: Werbe-frei + erweiterte Stats
 3. **Freemium Growth**: 80/20 Free/Premium Split
 
-## 🔧 Setup
+##  Setup
 
 ### Voraussetzungen
 - Android Studio 2024.2+
@@ -130,16 +130,15 @@ cd MyApplication
 ./gradlew installDebug  # Auf emulator/Gerät installieren
 ```
 
-## 📈 Erfolgsmetriken
+##  Erfolgsmetriken
 
 - **DAU/MAU**: Zielwert: 50% DAU (Menschen nutzen sie täglich)
 - **Session-Length**: Durchschnittlich 20 Minuten pro Session
 - **Retention**: Day-30 Retention 40%+
 - **Rating**: 4.5+ Sterne im Google Play Store
 
-Diese App hat echtes Marktpotential! 🚀
+Diese App hat echtes Marktpotential! 
 
 ---
 
 **Entwickelt mit ❤️ für maximale Produktivität**
-

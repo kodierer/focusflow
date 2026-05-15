@@ -20,7 +20,7 @@ class NotificationHelperTest {
     fun setup() {
         mockContext = mock(Context::class.java)
         mockNotificationManager = mock(NotificationManager::class.java)
-
+        
         `when`(mockContext.getSystemService(Context.NOTIFICATION_SERVICE))
             .thenReturn(mockNotificationManager)
     }
@@ -57,7 +57,7 @@ class NotificationHelperTest {
         val contextNoService = mock(Context::class.java)
         `when`(contextNoService.getSystemService(Context.NOTIFICATION_SERVICE))
             .thenReturn(null)
-
+        
         // Should either not crash or handle gracefully
         try {
             NotificationHelper.createNotificationChannel(contextNoService)
@@ -73,4 +73,3 @@ class NotificationHelperTest {
         // Verification would happen in integration tests
     }
 }
-

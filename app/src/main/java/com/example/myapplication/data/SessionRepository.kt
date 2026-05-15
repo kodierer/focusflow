@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class SessionRepository(context: Context) {
-    private val sharedPreferences: SharedPreferences =
+    private val sharedPreferences: SharedPreferences = 
         context.getSharedPreferences("focus_timer_prefs", Context.MODE_PRIVATE)
 
     fun incrementSessionsCompleted() {
@@ -47,4 +47,3 @@ class SessionRepository(context: Context) {
         private const val TODAY_DATE_KEY = "today_date"
     }
 }
-

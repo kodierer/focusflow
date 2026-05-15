@@ -1,5 +1,4 @@
-package com.example.myapplication.ui.screens
-
+﻿package com.example.myapplication.ui.screens
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -24,20 +23,17 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.TimerState
 import com.example.myapplication.TimerViewModel
 import kotlin.math.floor
-
 @Composable
 fun FocusTimerScreen(viewModel: TimerViewModel) {
     val state by viewModel.state.collectAsState()
-
     val backgroundColor by animateColorAsState(
         targetValue = if (state.isWorkSession) {
-            Color(0xFF1E88E5)  // Blau für Work
+            Color(0xFF1E88E5)
         } else {
-            Color(0xFF43A047)  // Grün für Break
+            Color(0xFF43A047)
         },
         label = "backgroundColor"
     )
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -51,7 +47,6 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // Header
             Text(
                 text = if (state.isWorkSession) "FOKUS Zeit" else "Pause",
                 color = Color.White,
@@ -59,13 +54,8 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
-
-            // Großer Timer Display
             TimerDisplay(state)
-
             Spacer(modifier = Modifier.height(40.dp))
-
-            // Kontrolltasten
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -73,7 +63,6 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Play/Pause Button
                 FloatingActionButton(
                     onClick = {
                         if (state.isRunning) viewModel.pauseTimer()
@@ -89,8 +78,6 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                         modifier = Modifier.size(30.dp)
                     )
                 }
-
-                // Reset Button
                 FloatingActionButton(
                     onClick = { viewModel.resetTimer() },
                     containerColor = Color.White,
@@ -104,25 +91,17 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                     )
                 }
             }
-
             Spacer(modifier = Modifier.height(40.dp))
-
-            // Einstellungen
             SettingsSection(state, viewModel)
-
             Spacer(modifier = Modifier.height(40.dp))
-
-            // Statistiken
             StatsSection(state)
         }
     }
 }
-
 @Composable
 fun TimerDisplay(state: TimerState) {
     val minutes = state.timeLeft / 60
     val seconds = state.timeLeft % 60
-
     Box(
         modifier = Modifier
             .size(260.dp)
@@ -143,7 +122,6 @@ fun TimerDisplay(state: TimerState) {
         }
     }
 }
-
 @Composable
 fun SettingsSection(state: TimerState, viewModel: TimerViewModel) {
     Surface(
@@ -166,8 +144,6 @@ fun SettingsSection(state: TimerState, viewModel: TimerViewModel) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
-
-            // Arbeitsdauer
             SettingItem(
                 label = "Arbeitsdauer",
                 value = state.workMinutes.toString(),
@@ -175,10 +151,7 @@ fun SettingsSection(state: TimerState, viewModel: TimerViewModel) {
                 onDecrease = { viewModel.setWorkMinutes((state.workMinutes - 1).coerceAtLeast(1)) },
                 isEnabled = !state.isRunning
             )
-
             Spacer(modifier = Modifier.height(12.dp))
-
-            // Pausendauer
             SettingItem(
                 label = "Pausendauer",
                 value = state.breakMinutes.toString(),
@@ -189,7 +162,6 @@ fun SettingsSection(state: TimerState, viewModel: TimerViewModel) {
         }
     }
 }
-
 @Composable
 fun SettingItem(
     label: String,
@@ -210,7 +182,6 @@ fun SettingItem(
             color = Color.White.copy(alpha = 0.9f),
             fontSize = 14.sp
         )
-
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -227,7 +198,6 @@ fun SettingItem(
             ) {
                 Text("-", color = Color.White, fontSize = 18.sp)
             }
-
             Text(
                 text = "$value min",
                 color = Color.White,
@@ -236,7 +206,6 @@ fun SettingItem(
                 modifier = Modifier.width(50.dp),
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center
             )
-
             Button(
                 onClick = onIncrease,
                 enabled = isEnabled,
@@ -252,7 +221,6 @@ fun SettingItem(
         }
     }
 }
-
 @Composable
 fun StatsSection(state: TimerState) {
     Surface(
@@ -273,22 +241,19 @@ fun StatsSection(state: TimerState) {
                 value = state.sessionsCompleted.toString(),
                 icon = "🏆"
             )
-
             StatCard(
                 title = "Fokus Zeit",
-                value = "${state.totalFocusMinutes} min",
+                value = "$${state.totalFocusMinutes} min",
                 icon = "⏱️"
             )
-
             StatCard(
                 title = "Heute",
-                value = "${(state.totalFocusMinutes / 60)} h",
+                value = "$${(state.totalFocusMinutes / 60)} h",
                 icon = "📊"
             )
         }
     }
 }
-
 @Composable
 fun StatCard(title: String, value: String, icon: String) {
     Column(
@@ -312,12 +277,7 @@ fun StatCard(title: String, value: String, icon: String) {
             text = title,
             color = Color.White.copy(alpha = 0.7f),
             fontSize = 11.sp,
-            textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-            )
-        }
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+        )
     }
 }
-
-
-
-

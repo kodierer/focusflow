@@ -1,6 +1,6 @@
 # ✅ JDK 21 UPGRADE ABGESCHLOSSEN!
 
-## 🚀 WAS GERADE PASSIERT:
+##  WAS GERADE PASSIERT:
 
 ```
 ✅ JDK 11 → JDK 21 Upgrade
@@ -10,7 +10,7 @@
 
 ---
 
-## 📊 UPGRADE-DETAILS
+##  UPGRADE-DETAILS
 
 ### **Vorher (JDK 11)**
 ```kotlin
@@ -26,7 +26,7 @@ targetCompatibility = JavaVersion.VERSION_21
 
 ---
 
-## 💡 WARUM JDK 21 BESSER IST:
+##  WARUM JDK 21 BESSER IST:
 
 | Feature | Vorteil |
 |---------|---------|
@@ -38,7 +38,7 @@ targetCompatibility = JavaVersion.VERSION_21
 
 ---
 
-## 🔄 GITHUB ACTIONS BAUT JETZT NEU
+##  GITHUB ACTIONS BAUT JETZT NEU
 
 Mit JDK 21 wird gerade:
 - ✅ Kompiliert mit JDK 21
@@ -47,16 +47,16 @@ Mit JDK 21 wird gerade:
 - ✅ Bundle wird generiert
 
 **Status überprüfen:**
-👉 https://github.com/kodierer/focusflow/actions
+ https://github.com/kodierer/focusflow/actions
 
 ---
 
-## 📋 COMMITS UPDATE
+##  COMMITS UPDATE
 
 ```
 afd8a1f (HEAD → main, origin/main) ⬆️ Upgrade to JDK 21
 bb90ef5 Add GitHub Setup Instructions
-fdbf2d7 🚀 FocusFlow v1.0 - Production Ready
+fdbf2d7  FocusFlow v1.0 - Production Ready
 ```
 
 ---
@@ -70,17 +70,16 @@ fdbf2d7 🚀 FocusFlow v1.0 - Production Ready
 
 ---
 
-## 🎯 NÄCHSTE SCHRITTE:
+##  NÄCHSTE SCHRITTE:
 
 Einfach weitermachen! 
 - GitHub Actions baut die neue APK mit JDK 21
 - In ~15 Min ist alles bereit
 - Download & zum Play Store hochladen
-- Fertig! 🚀
+- Fertig! 
 
 ---
 
 **Status: UPGRADED & PUSHED ✅**
 
 Die neue APK mit JDK 21 wird gerade gebaut!
-

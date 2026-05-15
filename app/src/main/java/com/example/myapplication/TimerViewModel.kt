@@ -132,7 +132,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
     }
 
     override fun onCleared() {
-        timerTask?.cancel()
+        timerRunnable?.let { timerHandler?.removeCallbacks(it) }
         super.onCleared()
     }
 }

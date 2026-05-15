@@ -3,7 +3,7 @@
 # Automatisiert alle Schritte zum Live-Gehen
 
 set -e
-echo "🚀 FocusFlow Launch Automation"
+echo " FocusFlow Launch Automation"
 echo "================================"
 
 # Colors
@@ -51,5 +51,4 @@ echo "   - See DEPLOYMENT_GUIDE.md for templates"
 echo ""
 echo "3. Submit for review!"
 echo ""
-echo -e "${GREEN}That's it! You're going live!${NC} 🎉"
-
+echo -e "${GREEN}That's it! You're going live!${NC} "

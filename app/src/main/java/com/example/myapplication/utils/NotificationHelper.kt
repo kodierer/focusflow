@@ -38,7 +38,7 @@ object NotificationHelper {
             val title = if (isWorkSession) 
                 "✅ Arbeitszeit vorbei!" 
             else 
-                "💪 Pause beendet!"
+                " Pause beendet!"
                 
             val message = if (isWorkSession)
                 "Kurze Pause verdient! Tippe um fortzufahren."
@@ -78,5 +78,4 @@ object NotificationHelper {
         }
     }
 }
-
 

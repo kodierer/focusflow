@@ -21,10 +21,10 @@ class SessionRepositoryTest {
     fun setup() {
         mockContext = mock(Context::class.java)
         mockSharedPreferences = mock(SharedPreferences::class.java)
-
+        
         `when`(mockContext.getSharedPreferences("focus_timer_prefs", Context.MODE_PRIVATE))
             .thenReturn(mockSharedPreferences)
-
+        
         repository = SessionRepository(mockContext)
     }
 
@@ -88,4 +88,3 @@ class SessionRepositoryTest {
         }
     }
 }
-

@@ -13,7 +13,7 @@ data class DailyStats(
 )
 
 class AnalyticsRepository(context: Context) {
-    private val sharedPreferences: SharedPreferences =
+    private val sharedPreferences: SharedPreferences = 
         context.getSharedPreferences("focus_timer_analytics", Context.MODE_PRIVATE)
 
     private val formatter = DateTimeFormatter.ISO_LOCAL_DATE
@@ -21,14 +21,14 @@ class AnalyticsRepository(context: Context) {
     fun recordSession(focusMinutes: Int, breakMinutes: Int) {
         val today = LocalDate.now().format(formatter)
         val key = "session_$today"
-
+        
         val currentCount = sharedPreferences.getInt(key, 0)
         val focusKey = "focus_$today"
         val breakKey = "break_$today"
-
+        
         val currentFocusMinutes = sharedPreferences.getInt(focusKey, 0)
         val currentBreakMinutes = sharedPreferences.getInt(breakKey, 0)
-
+        
         sharedPreferences.edit().apply {
             putInt(key, currentCount + 1)
             putInt(focusKey, currentFocusMinutes + focusMinutes)
@@ -41,7 +41,7 @@ class AnalyticsRepository(context: Context) {
         val sessionsKey = "session_$today"
         val focusKey = "focus_$today"
         val breakKey = "break_$today"
-
+        
         return DailyStats(
             date = today,
             sessionsCompleted = sharedPreferences.getInt(sessionsKey, 0),
@@ -57,7 +57,7 @@ class AnalyticsRepository(context: Context) {
             val sessionsKey = "session_$date"
             val focusKey = "focus_$date"
             val breakKey = "break_$date"
-
+            
             stats.add(
                 DailyStats(
                     date = date,
@@ -76,7 +76,7 @@ class AnalyticsRepository(context: Context) {
             val date = LocalDate.now().minusDays(daysAgo.toLong()).format(formatter)
             val sessionsKey = "session_$date"
             val sessions = sharedPreferences.getInt(sessionsKey, 0)
-
+            
             if (sessions > 0) {
                 streak++
             } else if (daysAgo > 0) {
@@ -89,12 +89,12 @@ class AnalyticsRepository(context: Context) {
     fun getLongestStreak(): Int {
         var longestStreak = 0
         var currentStreak = 0
-
+        
         for (daysAgo in 0..365) {
             val date = LocalDate.now().minusDays(daysAgo.toLong()).format(formatter)
             val sessionsKey = "session_$date"
             val sessions = sharedPreferences.getInt(sessionsKey, 0)
-
+            
             if (sessions > 0) {
                 currentStreak++
                 longestStreak = maxOf(longestStreak, currentStreak)
@@ -102,7 +102,7 @@ class AnalyticsRepository(context: Context) {
                 currentStreak = 0
             }
         }
-
+        
         return longestStreak
     }
 
@@ -131,7 +131,7 @@ class AnalyticsRepository(context: Context) {
     fun getAverageFocusPerSession(): Int {
         val totalSession = getTotalSessions()
         if (totalSession == 0) return 0
-
+        
         var totalMinutes = 0
         for (daysAgo in 0..365) {
             val date = LocalDate.now().minusDays(daysAgo.toLong()).format(formatter)
@@ -139,7 +139,7 @@ class AnalyticsRepository(context: Context) {
             val minutes = sharedPreferences.getInt(focusKey, 0)
             totalMinutes += minutes
         }
-
+        
         return totalMinutes / totalSession
     }
 
@@ -147,4 +147,3 @@ class AnalyticsRepository(context: Context) {
         sharedPreferences.edit().clear().apply()
     }
 }
-

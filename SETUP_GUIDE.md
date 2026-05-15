@@ -1,18 +1,18 @@
 # FocusFlow - Setup & Deployment Guide
 
-## 🚀 Schnellee Übersicht
+##  Schnellee Übersicht
 
 **FocusFlow** ist eine moderne Pomodoro-Timer App für Android mit diesen Highlights:
 
 - ⏱️ Flexible Pomodoro-Timer (25/5 min, einstellbar)
-- 📊 Echtzeit-Statistiken & Session-Tracking
-- 🎨 Wunderschönes Material 3 UI (Blau für Work, Grün für Break)
-- 💾 Lokale Datenspeicherung
+-  Echtzeit-Statistiken & Session-Tracking
+-  Wunderschönes Material 3 UI (Blau für Work, Grün für Break)
+-  Lokale Datenspeicherung
 - ⚡ Minimale Abhängigkeiten, Super schnell
 
 ---
 
-## 🔧 Installation & Build
+##  Installation & Build
 
 ### Systemvoraussetzungen
 
@@ -72,7 +72,7 @@ cd MyApplication
 
 ---
 
-## 📦 Projektstruktur
+##  Projektstruktur
 
 ```
 MyApplication/
@@ -107,7 +107,7 @@ MyApplication/
 
 ---
 
-## 🎮 App-Nutzung
+##  App-Nutzung
 
 ### Hauptbildschirm
 1. **Timer anzeigen**: Große Uhr mit MM:SS Format
@@ -128,7 +128,7 @@ MyApplication/
 
 ---
 
-## 🚗 Development Tipps
+##  Development Tipps
 
 ### Hot Reload aktivieren (Android Studio)
 1. Run → Edit Configurations
@@ -190,7 +190,7 @@ val backgroundColor by animateColorAsState(
 
 ---
 
-## 🚀 Deployment zum Google Play Store
+##  Deployment zum Google Play Store
 
 ### Pre-Deployment Checkliste
 - [ ] Versionsnummer erhöht in `build.gradle.kts` (versionCode, versionName)
@@ -227,7 +227,7 @@ keytool -genkey -v -keystore focus-timer.keystore \
 
 ---
 
-## 📈 Marketing & Growth Hacks
+##  Marketing & Growth Hacks
 
 ### Launch-Strategie
 1. **Beta-Testing**: 20-30 Beta-Tester via Google Play Console
@@ -257,7 +257,7 @@ implementation("com.google.android.gms:play-services-ads:22.6.0")
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "JAVA_HOME is not set"
 ```bash
@@ -292,7 +292,7 @@ rm -rf ~/.gradle/caches
 
 ---
 
-## 📚 Weitere Ressourcen
+##  Weitere Ressourcen
 
 - **Android Docs**: https://developer.android.com/
 - **Jetpack Compose**: https://developer.android.com/jetpack/compose
@@ -301,7 +301,7 @@ rm -rf ~/.gradle/caches
 
 ---
 
-## 💡 Nächste Feature-Ideen
+##  Nächste Feature-Ideen
 
 ### Short-term (1-2 Wochen)
 - [ ] Notifications bei Timer-Ende
@@ -345,7 +345,7 @@ fun MyScreenPreview() { ... }
 
 ---
 
-## 📞 Support & Community
+##  Support & Community
 
 - **GitHub Issues**: (wenn du es open-source machen willst)
 - **Email**: support@focusflowapp.com (später)
@@ -353,11 +353,10 @@ fun MyScreenPreview() { ... }
 
 ---
 
-**Viel Erfolg beim Launchen! 🚀📈**
+**Viel Erfolg beim Launchen! **
 
-Diese App hat das Zeug zum Hit! Lass uns die Welt produktiver machen! 💪
+Diese App hat das Zeug zum Hit! Lass uns die Welt produktiver machen! 
 
 ---
 
 *Last updated: 2026-05-15*
-

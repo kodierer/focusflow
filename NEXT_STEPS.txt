@@ -9,13 +9,13 @@
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 🎯 DU BIST FAST FERTIG!                                                     │
+│  DU BIST FAST FERTIG!                                                     │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │ Gerade passiert:                                                            │
 │ 1. ✅ 71 Files zu GitHub gepusht                                           │
 │ 2. ✅ GitHub Actions Workflow gestartet                                    │
-│ 3. 🔄 APP WIRD GERADE GEBAUT...                                           │
+│ 3.  APP WIRD GERADE GEBAUT...                                           │
 │                                                                             │
 │ Nächste 15 Minuten:                                                        │
 │ • GitHub baut APK                                                          │
@@ -30,22 +30,22 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 📊 BUILD STATUS ÜBERPRÜFEN                                                 │
+│  BUILD STATUS ÜBERPRÜFEN                                                 │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │ Öffne diese URL um den Build zu überwachen:                               │
 │                                                                             │
-│  👉 https://github.com/kodierer/focusflow/actions                         │
+│   https://github.com/kodierer/focusflow/actions                         │
 │                                                                             │
 │ Dort siehst du:                                                            │
-│ • Build-Fortschritt (🟡 läuft / 🟢 ferig / 🔴 fehler)                   │
+│ • Build-Fortschritt ( läuft /  ferig /  fehler)                   │
 │ • Detaillierte Logs der Build-Schritte                                    │
 │ • Downloadlinks für APK & Bundle                                          │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 🕐 ESTIMATED TIMELINE                                                       │
+│  ESTIMATED TIMELINE                                                       │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │ Jetzt:               Build startet (1-2 Min Wartezeit)                    │
@@ -54,12 +54,12 @@
 │ +15 Min:             Du kannst AAB downloaden                             │
 │ +20-30 Min:          Google Play Upload                                   │
 │ +1-24h:              Google Review                                        │
-│ +1-2 Tage:           🎉 LIVE IM PLAY STORE! 🎉                           │
+│ +1-2 Tage:            LIVE IM PLAY STORE!                            │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 💡 PARALLEL STARTEN: GOOGLE PLAY VORBEREITUNG                              │
+│  PARALLEL STARTEN: GOOGLE PLAY VORBEREITUNG                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │ Während GitHub baut, kannst du schon folgende Sachen  vorbereiten:        │
@@ -77,7 +77,7 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 📦 WENN BUILD FERTIG IST                                                   │
+│  WENN BUILD FERTIG IST                                                   │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │ 1. GitHub Actions öffnen:                                                 │
@@ -97,20 +97,20 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 🔗 WICHTIGE LINKS (BOOKMARK!)                                              │
+│  WICHTIGE LINKS (BOOKMARK!)                                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │ GitHub Repo:                                                              │
-│ 👉 https://github.com/kodierer/focusflow                                  │
+│  https://github.com/kodierer/focusflow                                  │
 │                                                                             │
 │ Build Status (Aktualisiert in Echtzeit):                                  │
-│ 👉 https://github.com/kodierer/focusflow/actions                          │
+│  https://github.com/kodierer/focusflow/actions                          │
 │                                                                             │
 │ Google Play Console:                                                      │
-│ 👉 https://play.google.com/console                                        │
+│  https://play.google.com/console                                        │
 │                                                                             │
 │ Deployment Guide (alle Infos):                                            │
-│ 👉 Siehe DEPLOYMENT_GUIDE.md im Repo                                      │
+│  Siehe DEPLOYMENT_GUIDE.md im Repo                                      │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
@@ -124,13 +124,13 @@
 │ Files:             71                                                      │
 │ Branch:            main                                                    │
 │ CI/CD:             GitHub Actions (Auto-build)                           │
-│ Status:            🟢 LIVE & BUILDING                                    │
+│ Status:             LIVE & BUILDING                                    │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
-║                            🚀 NÄCHSTE AKTION 🚀                            ║
+║                             NÄCHSTE AKTION                             ║
 ║                                                                            ║
 ║         1️⃣  Öffne: https://github.com/kodierer/focusflow/actions          ║
 ║                                                                            ║
@@ -140,17 +140,16 @@
 ║                                                                            ║
 ║         4️⃣  Google Play hochladen                                         ║
 ║                                                                            ║
-║         5️⃣  🎉 LIVE GEHEN! 🎉                                            ║
+║         5️⃣   LIVE GEHEN!                                             ║
 ║                                                                            ║
 ║                    Fertig in ~2-3 Tagen! ✅                               ║
 ║                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 Status:   ✅ GITHUB LIVE
-Build:    🔄 LÄUFT JETZT
+Build:     LÄUFT JETZT
 Est. Ready: 15 Minuten
 Next Step:  Actions überprüfen
 
 ---
 Erstellt: 2026-05-15 | FocusFlow v1.0
-

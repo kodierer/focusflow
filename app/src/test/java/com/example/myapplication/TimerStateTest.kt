@@ -39,7 +39,7 @@ class TimerStateTest {
         assertEquals(30, modified.workMinutes)
         assertTrue(modified.isRunning)
         assertEquals(5, modified.sessionsCompleted)
-
+        
         // Original should be unchanged
         assertEquals(25, timerState.workMinutes)
         assertFalse(timerState.isRunning)
@@ -77,4 +77,3 @@ class TimerStateTest {
         assertEquals(5, state2.sessionsCompleted)
     }
 }
-

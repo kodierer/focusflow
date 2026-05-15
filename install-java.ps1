@@ -52,4 +52,3 @@ Remove-Item -Path $installerPath -ErrorAction SilentlyContinue
 Write-Host "`n✓ Java installation complete!" -ForegroundColor Green
 Write-Host "Restart PowerShell or any IDE to apply changes" -ForegroundColor Cyan
 Write-Host "Verify with: java -version" -ForegroundColor Cyan
-

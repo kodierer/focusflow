@@ -20,7 +20,7 @@ class HapticFeedbackTest {
     fun setup() {
         mockContext = mock(Context::class.java)
         mockVibrator = mock(Vibrator::class.java)
-
+        
         `when`(mockContext.getSystemService(Context.VIBRATOR_SERVICE))
             .thenReturn(mockVibrator)
     }
@@ -57,11 +57,10 @@ class HapticFeedbackTest {
         val contextNoService = mock(Context::class.java)
         `when`(contextNoService.getSystemService(Context.VIBRATOR_SERVICE))
             .thenReturn(null)
-
+        
         // Should not crash
         HapticFeedback.vibrateSuccess(contextNoService)
         HapticFeedback.vibrateWarning(contextNoService)
         HapticFeedback.vibrateHeavy(contextNoService)
     }
 }
-
