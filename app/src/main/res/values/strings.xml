@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FocusFlow - Timer</string>
+    <string name="focus_time">Fokus Zeit</string>
+    <string name="break_time">Pause</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+    <string name="settings">Einstellungen</string>
+    <string name="work_duration">Arbeitsdauer</string>
+    <string name="break_duration">Pausendauer</string>
+    <string name="sessions_completed">Sessions</string>
+    <string name="focus_minutes">Fokus Zeit</string>
+    <string name="today">Heute</string>
+</resources>
