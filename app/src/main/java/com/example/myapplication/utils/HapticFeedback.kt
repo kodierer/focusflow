@@ -7,6 +7,7 @@ import android.os.VibrationEffect
 
 object HapticFeedback {
     fun vibrateSuccess(context: Context) {
+        @Suppress("DEPRECATION")
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator ?: return
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -18,6 +19,7 @@ object HapticFeedback {
     }
 
     fun vibrateWarning(context: Context) {
+        @Suppress("DEPRECATION")
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator ?: return
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -29,6 +31,7 @@ object HapticFeedback {
     }
 
     fun vibrateHeavy(context: Context) {
+        @Suppress("DEPRECATION")
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator ?: return
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {

@@ -77,7 +77,7 @@ fun SettingsScreen(onBackClick: () -> Unit) {
                 onToggle = {}
             )
 
-            Divider(modifier = Modifier.padding(vertical = 16.dp))
+            HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
 
             // Display Settings
             SettingsCategoryHeader("Anzeige")
@@ -96,7 +96,7 @@ fun SettingsScreen(onBackClick: () -> Unit) {
                 onToggle = {}
             )
 
-            Divider(modifier = Modifier.padding(vertical = 16.dp))
+            HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
 
             // Timer Settings
             SettingsCategoryHeader("Timer-Standard")
