@@ -32,11 +32,12 @@ object HapticFeedback {
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator ?: return
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_STRONG_CLICK))
+            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK))
         } else {
             @Suppress("DEPRECATION")
             vibrator.vibrate(longArrayOf(0, 200, 100, 200), -1)
         }
     }
 }
+
 

@@ -1,13 +1,13 @@
 package com.example.myapplication
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import kotlin.concurrent.timer
-import kotlin.concurrent.Timer
 import com.example.myapplication.utils.NotificationHelper
 import com.example.myapplication.utils.HapticFeedback
 
@@ -25,7 +25,8 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
     private val _state = MutableStateFlow(TimerState())
     val state: StateFlow<TimerState> = _state
 
-    private var timerTask: Timer? = null
+    private var timerHandler: Handler? = null
+    private var timerRunnable: Runnable? = null
 
     init {
         try {
@@ -41,30 +42,35 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
 
         _state.value = currentState.copy(isRunning = true)
 
-        timerTask = timer(initialDelay = 1000, period = 1000) {
-            val state = _state.value
-            if (state.timeLeft > 0) {
-                _state.value = state.copy(timeLeft = state.timeLeft - 1)
-            } else {
-                // Session complete - switch
-                timerTask?.cancel()
-                switchSession()
+        if (timerHandler == null) {
+            timerHandler = Handler(Looper.getMainLooper())
+        }
+
+        timerRunnable = object : Runnable {
+            override fun run() {
+                val state = _state.value
+                if (state.isRunning && state.timeLeft > 0) {
+                    _state.value = state.copy(timeLeft = state.timeLeft - 1)
+                    timerHandler?.postDelayed(this, 1000)
+                } else if (state.isRunning && state.timeLeft == 0) {
+                    timerHandler?.removeCallbacks(this)
+                    switchSession()
+                }
             }
         }
+        timerHandler?.post(timerRunnable!!)
     }
 
     fun pauseTimer() {
         val currentState = _state.value
         if (!currentState.isRunning) return
 
-        timerTask?.cancel()
-        timerTask = null
+        timerRunnable?.let { timerHandler?.removeCallbacks(it) }
         _state.value = currentState.copy(isRunning = false)
     }
 
     fun resetTimer() {
-        timerTask?.cancel()
-        timerTask = null
+        timerRunnable?.let { timerHandler?.removeCallbacks(it) }
         val state = _state.value
         val resetTime = if (state.isWorkSession) {
             state.workMinutes * 60
@@ -130,6 +136,8 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         super.onCleared()
     }
 }
+
+
 
 
 
