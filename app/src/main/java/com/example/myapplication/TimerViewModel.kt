@@ -28,7 +28,11 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
     private var timerTask: Timer? = null
 
     init {
-        context?.let { NotificationHelper.createNotificationChannel(it) }
+        try {
+            context?.let { NotificationHelper.createNotificationChannel(it) }
+        } catch (e: Exception) {
+            android.util.Log.e("TimerViewModel", "Error creating notification channel: ${e.message}")
+        }
     }
 
     fun startTimer() {
@@ -126,6 +130,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         super.onCleared()
     }
 }
+
 
 
 
