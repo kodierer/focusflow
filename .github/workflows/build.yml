@@ -13,14 +13,13 @@ jobs:
     timeout-minutes: 45
 
     steps:
-    - uses: actions/checkout@v4.1.2
+    - uses: actions/checkout@v4.2.1
 
     - name: Set up JDK 21
-      uses: actions/setup-java@v4.1.0
+      uses: actions/setup-java@v4.2.1
       with:
         java-version: '21'
         distribution: 'temurin'
-        cache: gradle
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -31,8 +30,7 @@ jobs:
           -x test \
           --no-daemon \
           -Dorg.gradle.jvmargs="-Xmx3072m -XX:+UseG1GC" \
-          -Dorg.gradle.parallel=true \
-          --build-cache
+          -Dorg.gradle.parallel=true
       timeout-minutes: 30
 
     - name: Verify APK Exists
@@ -41,31 +39,20 @@ jobs:
         if [ -f app/build/outputs/apk/debug/app-debug.apk ]; then
           echo "✅ APK FOUND"
           ls -lh app/build/outputs/apk/debug/app-debug.apk
-          APK_SIZE=$(du -h app/build/outputs/apk/debug/app-debug.apk | cut -f1)
-          echo "APK Size: $APK_SIZE"
         else
-          echo "❌ APK NOT FOUND at standard location"
-          echo "Searching all locations..."
+          echo "❌ APK NOT FOUND"
           find app/build -name "*.apk" -type f
           exit 1
         fi
 
     - name: Upload APK to Artifacts
-      uses: actions/upload-artifact@v4.1.0
+      uses: actions/upload-artifact@v4.3.1
       with:
         name: app-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
         retention-days: 30
         if-no-files-found: error
 
-    - name: Build Status Report
+    - name: Build Complete
       if: always()
-      run: |
-        echo ""
-        echo "=== FINAL BUILD REPORT ==="
-        if [ $? -eq 0 ]; then
-          echo "✅ BUILD SUCCESSFUL"
-          echo "✅ APK UPLOADED"
-        else
-          echo "❌ BUILD FAILED"
-        fi
+      run: echo "✅ Build pipeline completed"
