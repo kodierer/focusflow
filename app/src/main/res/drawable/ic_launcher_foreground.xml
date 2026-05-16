@@ -4,29 +4,27 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Outer circle - Timer ring -->
-    <path
-        android:fillColor="@android:color/white"
-        android:pathData="M54,18C34.1,18 18,34.1 18,54s16.1,36 36,36 36,-16.1 36,-36S73.9,18 54,18ZM54,82c-15.5,0 -28,-12.5 -28,-28s12.5,-28 28,-28 28,12.5 28,28 -12.5,28 -28,28Z"/>
-    
-    <!-- Center circle - play/focus indicator -->
-    <circle
-        android:cx="54"
-        android:cy="54"
-        android:r="16"
-        android:fillColor="#1E88E5"/>
-    
-    <!-- Time indicator - small line at 12 o'clock -->
+
+    <!-- Background circle -->
     <path
         android:fillColor="#1E88E5"
-        android:pathData="M54,30 L54,38 Z"
-        android:strokeWidth="3"
-        android:strokeColor="#1E88E5"/>
-    
-    <!-- Accent line at 3 o'clock for timer effect -->
+        android:pathData="M54,18C34.1,18 18,34.1 18,54s16.1,36 36,36 36,-16.1 36,-36S73.9,18 54,18Z"/>
+
+    <!-- Ring/Border -->
     <path
-        android:fillColor="#43A047"
-        android:pathData="M70,54 L76,54 Z"
-        android:strokeWidth="3"
-        android:strokeColor="#43A047"/>
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2"
+        android:pathData="M54,28C40.2,28 28,40.2 28,54s12.2,26 26,26 26,-12.2 26,-26 -12.2,-26 -26,-26Z"/>
+
+    <!-- Timer hand/indicator - line from center upward -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2"
+        android:pathData="M54,54 L54,38"/>
+
+    <!-- Center dot -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M54,52 A2,2 0 0,1 56,54 A2,2 0 0,1 54,56 A2,2 0 0,1 52,54 A2,2 0 0,1 54,52Z"/>
 </vector>
