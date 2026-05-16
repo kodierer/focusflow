@@ -1,4 +1,4 @@
-# FocusFlow – Uebergabe-Dokumentation
+# FocusFlow – Übergabe-Dokumentation
 
 ## 1) Projektkontext
 - **App**: FocusFlow (Pomodoro Timer)
@@ -7,13 +7,13 @@
 - **Aktueller Stand**: Feature-Umfang ist implementiert; bestehende Statusdokumente sind vorhanden (`EXECUTIVE_SUMMARY.md`, `FINAL_STATUS.md`, `NEXT_STEPS.txt`).
 
 ## 2) Offene, priorisierte Punkte
-> Priorisierung fuer die naechste uebernehmende Person. Diese Punkte sind als offene Risiken/Follow-ups zu behandeln.
+> Priorisierung für die nächste übernehmende Person. Diese Punkte sind als offene Risiken/Follow-ups zu behandeln.
 
 1. **HIGH** – `VIBRATOR_SERVICE` modernisieren  
    - Datei: `app/src/main/java/com/example/myapplication/utils/HapticFeedback.kt`  
-   - Status: Aktuell mit `@Suppress("DEPRECATION")`; auf modernes Vibrator-API fuer neue Android-Versionen konsolidieren.
+   - Status: Aktuell mit `@Suppress("DEPRECATION")`; auf modernes Vibrator-API für neue Android-Versionen konsolidieren.
 
-2. **HIGH** – Deprecated-Usage in UI/Utilities vollstaendig gegenpruefen  
+2. **HIGH** – Deprecated-Usage in UI/Utilities vollständig gegenprüfen  
    - Einstieg: `SettingsScreen.kt`, `HapticFeedback.kt`  
    - Ziel: Sicherstellen, dass keine verbleibenden Deprecated-Stellen uebersehen wurden.
 
@@ -21,16 +21,16 @@
    - Datei: `app/src/main/java/com/example/myapplication/TimerViewModel.kt` (`startTimer()`)  
    - Testfaelle: 25 / 60 / 120 Minuten, inkl. App im Vorder-/Hintergrund.
 
-4. **MEDIUM** – Notification-Verhalten fuer Android 12+ (API 31+) absichern  
+4. **MEDIUM** – Notification-Verhalten für Android 12+ (API 31+) absichern  
    - Datei: `app/src/main/java/com/example/myapplication/utils/NotificationHelper.kt`  
-   - Fokus: Verhalten bei neuen Notification-/PendingIntent-Randfaellen und OEM-Unterschieden.
+   - Fokus: Verhalten bei neuen Notification-/PendingIntent-Randfällen und OEM-Unterschieden.
 
-## 3) Konkreter Arbeitsablauf fuer die Uebernahme
-1. Repository pullen und in Android Studio oeffnen.
-2. JDK/SDK-Konfiguration pruefen.
-3. Lokalen Build und Tests ausfuehren.
+## 3) Konkreter Arbeitsablauf für die Übernahme
+1. Repository pullen und in Android Studio öffnen.
+2. JDK/SDK-Konfiguration prüfen.
+3. Lokalen Build und Tests ausführen.
 4. Danach die 4 priorisierten Punkte in obiger Reihenfolge bearbeiten.
-5. Nach jedem Fix: Build + relevante Tests + manuelle Verifikation auf Emulator/Geraet.
+5. Nach jedem Fix: Build + relevante Tests + manuelle Verifikation auf Emulator/Gerät.
 6. Ergebnis kurz in `FINAL_STATUS.md` bzw. neuem Changelog-Abschnitt dokumentieren.
 
 ## 4) Relevante Einstiegsdateien
