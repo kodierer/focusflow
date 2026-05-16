@@ -11,9 +11,9 @@
 
 1. **HIGH** – `VIBRATOR_SERVICE` modernisieren  
    - Datei: `app/src/main/java/com/example/myapplication/utils/HapticFeedback.kt`  
-   - Status: Aktuell mit `@Suppress("DEPRECATION")`; auf modernes Vibrator-API für neue Android-Versionen konsolidieren.
+   - Status: Aktuell mit `@Suppress("DEPRECATION")`; auf modernes Vibrator-API für neue Android-Versionen umstellen.
 
-2. **HIGH** – Deprecated-Usage in UI/Utilities vollständig gegenprüfen  
+2. **HIGH** – Deprecated-Usage in UI/Utilities vollständig überprüfen  
    - Einstieg: `SettingsScreen.kt`, `HapticFeedback.kt`  
    - Ziel: Sicherstellen, dass keine verbleibenden Deprecated-Stellen übersehen wurden.
 
