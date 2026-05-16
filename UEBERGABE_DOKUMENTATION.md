@@ -15,7 +15,7 @@
 
 2. **HIGH** – Deprecated-Usage in UI/Utilities vollständig gegenprüfen  
    - Einstieg: `SettingsScreen.kt`, `HapticFeedback.kt`  
-   - Ziel: Sicherstellen, dass keine verbleibenden Deprecated-Stellen uebersehen wurden.
+   - Ziel: Sicherstellen, dass keine verbleibenden Deprecated-Stellen übersehen wurden.
 
 3. **MEDIUM** – Timer-Genauigkeit bei langen Sessions validieren  
    - Datei: `app/src/main/java/com/example/myapplication/TimerViewModel.kt` (`startTimer()`)  
