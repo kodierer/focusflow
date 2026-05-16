@@ -79,6 +79,17 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                     )
                 }
                 FloatingActionButton(
+                    onClick = { viewModel.toggleSession() },
+                    containerColor = Color.White,
+                    contentColor = backgroundColor,
+                    modifier = Modifier.size(60.dp)
+                ) {
+                    Text(
+                        text = if (state.isWorkSession) "⏸️" else "⚡",
+                        fontSize = 24.sp
+                    )
+                }
+                FloatingActionButton(
                     onClick = { viewModel.resetTimer() },
                     containerColor = Color.White,
                     contentColor = backgroundColor,
@@ -243,12 +254,12 @@ fun StatsSection(state: TimerState) {
             )
             StatCard(
                 title = "Fokus Zeit",
-                value = "$${state.totalFocusMinutes} min",
+                value = "${state.totalFocusMinutes} min",
                 icon = "⏱️"
             )
             StatCard(
                 title = "Heute",
-                value = "$${(state.totalFocusMinutes / 60)} h",
+                value = "${(state.totalFocusMinutes / 60)} h",
                 icon = "📊"
             )
         }
