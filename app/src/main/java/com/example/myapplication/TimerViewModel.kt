@@ -83,14 +83,14 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         )
     }
 
-    private fun switchSession() {
+    fun toggleSession() {
         val state = _state.value
+        timerRunnable?.let { timerHandler?.removeCallbacks(it) }
+        
         val newState = if (state.isWorkSession) {
             state.copy(
                 isWorkSession = false,
                 timeLeft = state.breakMinutes * 60,
-                sessionsCompleted = state.sessionsCompleted + 1,
-                totalFocusMinutes = state.totalFocusMinutes + state.workMinutes,
                 isRunning = false
             )
         } else {
@@ -101,12 +101,35 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
             )
         }
         _state.value = newState
+    }
+
+    private fun switchSession() {
+        val state = _state.value
+        val newState = if (state.isWorkSession) {
+            state.copy(
+                isWorkSession = false,
+                timeLeft = state.breakMinutes * 60,
+                sessionsCompleted = state.sessionsCompleted + 1,
+                totalFocusMinutes = state.totalFocusMinutes + state.workMinutes,
+                isRunning = true  // Auto-start break
+            )
+        } else {
+            state.copy(
+                isWorkSession = true,
+                timeLeft = state.workMinutes * 60,
+                isRunning = true  // Auto-start work session
+            )
+        }
+        _state.value = newState
 
         // Show notification and haptic feedback
         context?.let {
             NotificationHelper.showSessionCompleteNotification(it, state.isWorkSession)
             HapticFeedback.vibrateHeavy(it)
         }
+        
+        // Continue the timer automatically
+        startTimer()
     }
 
     fun setWorkMinutes(minutes: Int) {
