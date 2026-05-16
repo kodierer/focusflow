@@ -19,7 +19,7 @@
 
 3. **MEDIUM** – Timer-Genauigkeit bei langen Sessions validieren  
    - Datei: `app/src/main/java/com/example/myapplication/TimerViewModel.kt` (`startTimer()`)  
-   - Testfaelle: 25 / 60 / 120 Minuten, inkl. App im Vorder-/Hintergrund.
+   - Testfälle: 25 / 60 / 120 Minuten, inkl. App im Vorder-/Hintergrund.
 
 4. **MEDIUM** – Notification-Verhalten für Android 12+ (API 31+) absichern  
    - Datei: `app/src/main/java/com/example/myapplication/utils/NotificationHelper.kt`  
