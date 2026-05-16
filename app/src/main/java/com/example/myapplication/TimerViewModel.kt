@@ -91,17 +91,17 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
             state.copy(
                 isWorkSession = false,
                 timeLeft = state.breakMinutes * 60,
-                isRunning = true  // Auto-start on session toggle
+                isRunning = false  // Let startTimer() handle the running state
             )
         } else {
             state.copy(
                 isWorkSession = true,
                 timeLeft = state.workMinutes * 60,
-                isRunning = true  // Auto-start on session toggle
+                isRunning = false  // Let startTimer() handle the running state
             )
         }
         _state.value = newState
-        startTimer()  // Begin timer immediately
+        startTimer()  // This will set isRunning=true and start the timer
     }
 
     private fun switchSession() {
@@ -112,13 +112,13 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
                 timeLeft = state.breakMinutes * 60,
                 sessionsCompleted = state.sessionsCompleted + 1,
                 totalFocusMinutes = state.totalFocusMinutes + state.workMinutes,
-                isRunning = true  // Auto-start break
+                isRunning = false  // Let startTimer() handle initialization
             )
         } else {
             state.copy(
                 isWorkSession = true,
                 timeLeft = state.workMinutes * 60,
-                isRunning = true  // Auto-start work session
+                isRunning = false  // Let startTimer() handle initialization
             )
         }
         _state.value = newState
