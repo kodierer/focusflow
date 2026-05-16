@@ -82,6 +82,15 @@ Wichtige technische Eckdaten:
 - Timer Logik: `app/src/main/java/com/example/myapplication/TimerViewModel.kt`
 - Haupt-UI: `app/src/main/java/com/example/myapplication/ui/screens/FocusTimerScreen.kt`
 
+## Folge-Arbeiten (HIGH Prioritaet)
+1. **HIGH** – `VIBRATOR_SERVICE` modernisieren  
+   - Datei: `app/src/main/java/com/example/myapplication/utils/HapticFeedback.kt`  
+   - Status: Aktuell mit `@Suppress("DEPRECATION")`; auf modernes Vibrator-API für neue Android-Versionen umstellen.
+
+2. **HIGH** – Deprecated-Usage in UI/Utilities vollständig überprüfen  
+   - Einstieg: `SettingsScreen.kt`, `HapticFeedback.kt`  
+   - Ziel: Sicherstellen, dass keine verbleibenden Deprecated-Stellen übersehen wurden.
+
 ## Aktueller Status
 Es liegen mehrere bestehende Statusberichte im Repo vor, u. a.:
 - `FINAL_STATUS.md`
