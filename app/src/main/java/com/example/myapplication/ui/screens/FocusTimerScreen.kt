@@ -85,7 +85,7 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                     modifier = Modifier.size(60.dp)
                 ) {
                     Text(
-                        text = if (state.isWorkSession) "⏸️" else "⚡",
+                        text = if (state.isWorkSession) "☕" else "🎯",
                         fontSize = 24.sp
                     )
                 }
