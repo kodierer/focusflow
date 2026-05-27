@@ -5,7 +5,11 @@ import org.junit.Test
 import org.junit.Assert.*
 import android.content.Context
 import android.content.SharedPreferences
+import org.mockito.ArgumentMatchers.anyInt
+import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mockito.*
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 
 /**
  * Unit tests for SessionRepository
@@ -15,16 +19,22 @@ class SessionRepositoryTest {
 
     private lateinit var mockContext: Context
     private lateinit var mockSharedPreferences: SharedPreferences
+    private lateinit var mockEditor: SharedPreferences.Editor
     private lateinit var repository: SessionRepository
 
     @Before
     fun setup() {
         mockContext = mock(Context::class.java)
         mockSharedPreferences = mock(SharedPreferences::class.java)
-        
+        mockEditor = mock(SharedPreferences.Editor::class.java)
+
         `when`(mockContext.getSharedPreferences("focus_timer_prefs", Context.MODE_PRIVATE))
             .thenReturn(mockSharedPreferences)
-        
+        `when`(mockSharedPreferences.edit()).thenReturn(mockEditor)
+        `when`(mockEditor.putInt(anyString(), anyInt())).thenReturn(mockEditor)
+        `when`(mockEditor.putString(anyString(), anyString())).thenReturn(mockEditor)
+        `when`(mockEditor.apply()).then { /* no-op for test */ }
+
         repository = SessionRepository(mockContext)
     }
 
@@ -46,45 +56,55 @@ class SessionRepositoryTest {
     }
 
     @Test
-    fun get_today_date_returns_string() {
+    fun get_today_date_returns_empty_string_by_default() {
         val date = repository.getTodayDate()
-        assertNotNull(date)
-        assertTrue(date is String)
+        assertEquals("", date)
     }
 
     @Test
-    fun increment_sessions_does_not_crash() {
-        try {
-            repository.incrementSessionsCompleted()
-        } catch (e: Exception) {
-            fail("incrementSessionsCompleted threw exception: ${e.message}")
-        }
+    fun get_today_date_returns_previously_saved_value() {
+        whenever(mockSharedPreferences.getString("today_date", "")).thenReturn("2026-05-10")
+
+        val date = repository.getTodayDate()
+
+        assertEquals("2026-05-10", date)
     }
 
     @Test
-    fun increment_focus_minutes_does_not_crash() {
-        try {
-            repository.incrementTotalFocusMinutes(25)
-        } catch (e: Exception) {
-            fail("incrementTotalFocusMinutes threw exception: ${e.message}")
-        }
+    fun increment_sessions_calls_editor_correctly() {
+        whenever(mockSharedPreferences.getInt("sessions_completed", 0)).thenReturn(3)
+
+        repository.incrementSessionsCompleted()
+
+        verify(mockEditor).putInt("sessions_completed", 4)
+        verify(mockEditor).apply()
     }
 
     @Test
-    fun save_today_date_does_not_crash() {
-        try {
-            repository.saveTodayDate("2026-05-15")
-        } catch (e: Exception) {
-            fail("saveTodayDate threw exception: ${e.message}")
-        }
+    fun increment_focus_minutes_calls_editor_correctly() {
+        whenever(mockSharedPreferences.getInt("total_focus_minutes", 0)).thenReturn(40)
+
+        repository.incrementTotalFocusMinutes(25)
+
+        verify(mockEditor).putInt("total_focus_minutes", 65)
+        verify(mockEditor).apply()
     }
 
     @Test
-    fun reset_daily_stats_does_not_crash() {
-        try {
-            repository.resetDailyStats()
-        } catch (e: Exception) {
-            fail("resetDailyStats threw exception: ${e.message}")
-        }
+    fun save_today_date_stores_value() {
+        repository.saveTodayDate("2026-05-15")
+
+        verify(mockEditor).putString("today_date", "2026-05-15")
+        verify(mockEditor).apply()
+    }
+
+    @Test
+    fun reset_daily_stats_clears_all_keys() {
+        repository.resetDailyStats()
+
+        verify(mockEditor).putInt("sessions_completed", 0)
+        verify(mockEditor).putInt("total_focus_minutes", 0)
+        verify(mockEditor).putString("today_date", "")
+        verify(mockEditor).apply()
     }
 }

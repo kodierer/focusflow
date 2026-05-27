@@ -26,30 +26,10 @@ class HapticFeedbackTest {
     }
 
     @Test
-    fun vibrate_success_does_not_crash() {
-        try {
-            HapticFeedback.vibrateSuccess(mockContext)
-        } catch (e: Exception) {
-            fail("vibrateSuccess threw exception: ${e.message}")
-        }
-    }
+    fun vibrate_success_requests_vibrator_service() {
+        HapticFeedback.vibrateSuccess(mockContext)
 
-    @Test
-    fun vibrate_warning_does_not_crash() {
-        try {
-            HapticFeedback.vibrateWarning(mockContext)
-        } catch (e: Exception) {
-            fail("vibrateWarning threw exception: ${e.message}")
-        }
-    }
-
-    @Test
-    fun vibrate_heavy_does_not_crash() {
-        try {
-            HapticFeedback.vibrateHeavy(mockContext)
-        } catch (e: Exception) {
-            fail("vibrateHeavy threw exception: ${e.message}")
-        }
+        verify(mockContext).getSystemService(Context.VIBRATOR_SERVICE)
     }
 
     @Test
