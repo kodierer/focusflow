@@ -4,12 +4,14 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.AnalyticsRepository
+import com.example.myapplication.data.SessionRepository
+import com.example.myapplication.utils.HapticFeedback
+import com.example.myapplication.utils.NotificationHelper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
-import com.example.myapplication.utils.NotificationHelper
-import com.example.myapplication.utils.HapticFeedback
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 data class TimerState(
     val workMinutes: Int = 25,
@@ -18,22 +20,46 @@ data class TimerState(
     val isRunning: Boolean = false,
     val isWorkSession: Boolean = true,
     val sessionsCompleted: Int = 0,
-    val totalFocusMinutes: Int = 0
+    val totalFocusMinutes: Int = 0,
+    val currentStreak: Int = 0   // bonus: show motivation
 )
 
 class TimerViewModel(private val context: Context? = null) : ViewModel() {
+    private val sessionRepo = context?.let { SessionRepository(it) }
+    private val analyticsRepo = context?.let { AnalyticsRepository(it) }
+
     private val _state = MutableStateFlow(TimerState())
     val state: StateFlow<TimerState> = _state
 
     private var timerHandler: Handler? = null
     private var timerRunnable: Runnable? = null
 
+    private val dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE
+
     init {
         try {
             context?.let { NotificationHelper.createNotificationChannel(it) }
+            loadPersistedStats()
         } catch (e: Exception) {
-            android.util.Log.e("TimerViewModel", "Error creating notification channel: ${e.message}")
+            android.util.Log.e("TimerViewModel", "Init error: ${e.message}")
         }
+    }
+
+    private fun loadPersistedStats() {
+        val today = LocalDate.now().format(dateFormatter)
+        val savedDate = sessionRepo?.getTodayDate() ?: ""
+
+        val sessions = if (savedDate == today) sessionRepo?.getSessionsCompleted() ?: 0 else 0
+        val focusMin = if (savedDate == today) sessionRepo?.getTotalFocusMinutes() ?: 0 else 0
+
+        // Bonus: load a nice streak from analytics
+        val streak = analyticsRepo?.getStreak() ?: 0
+
+        _state.value = _state.value.copy(
+            sessionsCompleted = sessions,
+            totalFocusMinutes = focusMin,
+            currentStreak = streak
+        )
     }
 
     fun startTimer() {
@@ -106,30 +132,46 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
 
     private fun switchSession() {
         val state = _state.value
-        val newState = if (state.isWorkSession) {
+        val isFinishingWork = state.isWorkSession
+
+        val newSessions = if (isFinishingWork) state.sessionsCompleted + 1 else state.sessionsCompleted
+        val newFocusMin = if (isFinishingWork) state.totalFocusMinutes + state.workMinutes else state.totalFocusMinutes
+
+        val newState = if (isFinishingWork) {
             state.copy(
                 isWorkSession = false,
                 timeLeft = state.breakMinutes * 60,
-                sessionsCompleted = state.sessionsCompleted + 1,
-                totalFocusMinutes = state.totalFocusMinutes + state.workMinutes,
-                isRunning = false  // Let startTimer() handle initialization
+                sessionsCompleted = newSessions,
+                totalFocusMinutes = newFocusMin,
+                isRunning = false
             )
         } else {
             state.copy(
                 isWorkSession = true,
                 timeLeft = state.workMinutes * 60,
-                isRunning = false  // Let startTimer() handle initialization
+                isRunning = false
             )
         }
         _state.value = newState
 
-        // Show notification and haptic feedback
+        // === PERSISTENCE: Save progress (the big attractiveness win - stats survive restarts!) ===
+        if (isFinishingWork) {
+            val today = LocalDate.now().format(dateFormatter)
+            sessionRepo?.let { repo ->
+                repo.incrementSessionsCompleted()
+                repo.incrementTotalFocusMinutes(state.workMinutes)
+                repo.saveTodayDate(today)
+            }
+            analyticsRepo?.recordSession(state.workMinutes, state.breakMinutes)
+        }
+
+        // Delight: notification + strong haptic
         context?.let {
             NotificationHelper.showSessionCompleteNotification(it, state.isWorkSession)
             HapticFeedback.vibrateHeavy(it)
         }
-        
-        // Continue the timer automatically
+
+        // Auto-continue
         startTimer()
     }
 
