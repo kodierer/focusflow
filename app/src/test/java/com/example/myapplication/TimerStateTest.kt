@@ -26,6 +26,7 @@ class TimerStateTest {
         assertTrue(timerState.isWorkSession)
         assertEquals(0, timerState.sessionsCompleted)
         assertEquals(0, timerState.totalFocusMinutes)
+        assertEquals(0, timerState.currentStreak)   // NEW: streak support
     }
 
     @Test
@@ -33,17 +34,20 @@ class TimerStateTest {
         val modified = timerState.copy(
             workMinutes = 30,
             isRunning = true,
-            sessionsCompleted = 5
+            sessionsCompleted = 5,
+            currentStreak = 7   // NEW field
         )
 
         assertEquals(30, modified.workMinutes)
         assertTrue(modified.isRunning)
         assertEquals(5, modified.sessionsCompleted)
+        assertEquals(7, modified.currentStreak)
         
         // Original should be unchanged
         assertEquals(25, timerState.workMinutes)
         assertFalse(timerState.isRunning)
         assertEquals(0, timerState.sessionsCompleted)
+        assertEquals(0, timerState.currentStreak)
     }
 
     @Test
