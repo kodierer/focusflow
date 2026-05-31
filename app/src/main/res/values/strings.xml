@@ -1,15 +1,44 @@
 <resources>
     <string name="app_name">FocusFlow</string>
-    <string name="focus_time">Fokus Zeit</string>
-    <string name="break_time">Pause</string>
-    <string name="start">Start</string>
-    <string name="pause">Pause</string>
-    <string name="reset">Reset</string>
+
+    <!-- Header -->
+    <string name="phase_focus">Fokus-Phase</string>
+    <string name="phase_break">Erholungsphase</string>
+
+    <!-- Timer labels -->
+    <string name="label_focus">FOKUS</string>
+    <string name="label_pause">PAUSE</string>
+
+    <!-- Control buttons -->
+    <string name="btn_start">Start</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_break">Pause</string>
+    <string name="btn_focus">Fokus</string>
+    <string name="btn_reset">Reset</string>
+
+    <!-- Achievement card -->
+    <string name="stat_sessions">Sessions</string>
+    <string name="stat_minutes">Minuten</string>
+    <string name="stat_streak">Streak 🔥</string>
+    <string name="stat_today">Heute</string>
+    <string name="stat_days">%d Tage</string>
+
+    <!-- Quick duration card -->
+    <string name="quick_adjust">Schnelle Anpassung</string>
+    <string name="duration_focus">Fokus</string>
+    <string name="duration_break">Pause</string>
+    <string name="duration_min">%d min</string>
+
+    <!-- Settings sheet -->
     <string name="settings">Einstellungen</string>
-    <string name="work_duration">Arbeitsdauer</string>
-    <string name="break_duration">Pausendauer</string>
-    <string name="sessions_completed">Sessions</string>
-    <string name="focus_minutes">Fokus Zeit</string>
-    <string name="today">Heute</string>
-    <string name="streak">Streak</string>
+    <string name="settings_adjust_duration">Dauer anpassen</string>
+    <string name="settings_experience">Erlebnis &amp; Feedback</string>
+    <string name="settings_notifications">Benachrichtigungen</string>
+    <string name="settings_notifications_sub">Session-Ende Alarm</string>
+    <string name="settings_haptics">Haptik</string>
+    <string name="settings_haptics_sub">Starkes Feedback bei Wechsel</string>
+    <string name="btn_close">Schließen</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_settings">Einstellungen</string>
 </resources>
