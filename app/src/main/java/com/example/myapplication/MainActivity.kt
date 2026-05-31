@@ -12,10 +12,11 @@ import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
-    private val viewModel = TimerViewModel(this)
+    private lateinit var viewModel: TimerViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = TimerViewModel(this)
         enableEdgeToEdge()
 
         // Keep screen awake intelligently during focus sessions (huge productivity win)
