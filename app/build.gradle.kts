@@ -4,17 +4,26 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "com.kodierer.focusflow"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
+        applicationId = "com.kodierer.focusflow"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = file("../focusflow-release.jks")
+            storePassword = "focusflow2024"
+            keyAlias = "focusflow"
+            keyPassword = "focusflow2024"
+        }
     }
 
     buildTypes {
@@ -25,7 +34,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")  // Later: Replace with release keystore
+            signingConfig = signingConfigs.getByName("release")
         }
         debug {
             isMinifyEnabled = false
