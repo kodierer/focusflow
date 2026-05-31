@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">FocusFlow</string>
+
+    <!-- Header -->
+    <string name="phase_focus">Phase de Concentration</string>
+    <string name="phase_break">Temps de Pause</string>
+
+    <!-- Timer labels -->
+    <string name="label_focus">FOCUS</string>
+    <string name="label_pause">PAUSE</string>
+
+    <!-- Control buttons -->
+    <string name="btn_start">Démarrer</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_break">Pause</string>
+    <string name="btn_focus">Focus</string>
+    <string name="btn_reset">Réinitialiser</string>
+
+    <!-- Achievement card -->
+    <string name="stat_sessions">Sessions</string>
+    <string name="stat_minutes">Minutes</string>
+    <string name="stat_streak">Série 🔥</string>
+    <string name="stat_today">Aujourd\'hui</string>
+    <string name="stat_days">%d jours</string>
+
+    <!-- Quick duration card -->
+    <string name="quick_adjust">Ajustement Rapide</string>
+    <string name="duration_focus">Focus</string>
+    <string name="duration_break">Pause</string>
+    <string name="duration_min">%d min</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Paramètres</string>
+    <string name="settings_adjust_duration">Ajuster la Durée</string>
+    <string name="settings_experience">Expérience &amp; Feedback</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_sub">Alarme de fin de session</string>
+    <string name="settings_haptics">Haptique</string>
+    <string name="settings_haptics_sub">Vibration forte lors du changement</string>
+    <string name="btn_close">Fermer</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_settings">Paramètres</string>
+</resources>
+

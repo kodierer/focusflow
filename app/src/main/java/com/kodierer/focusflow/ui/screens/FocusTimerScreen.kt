@@ -26,14 +26,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kodierer.focusflow.R
 import com.kodierer.focusflow.TimerState
 import com.kodierer.focusflow.TimerViewModel
 import com.kodierer.focusflow.ui.theme.*
 import kotlinx.coroutines.launch
+
 @Composable
 fun FocusTimerScreen(viewModel: TimerViewModel) {
     val state by viewModel.state.collectAsState()
@@ -61,7 +64,7 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
         modifier = Modifier
             .fillMaxSize()
             .background(backgroundColor)
-            .systemBarsPadding()   // respect status/navigation bars nicely
+            .systemBarsPadding()
     ) {
         Column(
             modifier = Modifier
@@ -80,14 +83,14 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
             ) {
                 Column {
                     Text(
-                        text = "FocusFlow",
+                        text = stringResource(R.string.app_name),
                         color = TextOnColor,
                         fontSize = 22.sp,
                         fontWeight = FontWeight.SemiBold,
                         letterSpacing = 0.5.sp
                     )
                     Text(
-                        text = if (state.isWorkSession) "Fokus-Phase" else "Erholungsphase",
+                        text = if (state.isWorkSession) stringResource(R.string.phase_focus) else stringResource(R.string.phase_break),
                         color = TextOnColorSecondary,
                         fontSize = 13.sp
                     )
@@ -101,7 +104,7 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                 ) {
                     Icon(
                         imageVector = Icons.Outlined.Settings,
-                        contentDescription = "Einstellungen",
+                        contentDescription = stringResource(R.string.cd_settings),
                         tint = TextOnColor,
                         modifier = Modifier.size(22.dp)
                     )
@@ -128,7 +131,7 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                 // Play / Pause - primary action, slightly larger
                 ControlButton(
                     icon = if (state.isRunning) Icons.Filled.Pause else Icons.Filled.PlayArrow,
-                    label = if (state.isRunning) "Pause" else "Start",
+                    label = if (state.isRunning) stringResource(R.string.btn_pause) else stringResource(R.string.btn_start),
                     containerColor = Color.White,
                     contentColor = backgroundColor,
                     size = 68.dp,
@@ -140,7 +143,7 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                 // Mode Switch - very clear
                 ControlButton(
                     icon = if (state.isWorkSession) Icons.Filled.Coffee else Icons.Filled.EmojiObjects,
-                    label = if (state.isWorkSession) "Pause" else "Fokus",
+                    label = if (state.isWorkSession) stringResource(R.string.btn_break) else stringResource(R.string.btn_focus),
                     containerColor = Color.White.copy(alpha = 0.95f),
                     contentColor = backgroundColor,
                     size = 58.dp,
@@ -150,7 +153,7 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
                 // Reset
                 ControlButton(
                     icon = Icons.Filled.Refresh,
-                    label = "Reset",
+                    label = stringResource(R.string.btn_reset),
                     containerColor = Color.White.copy(alpha = 0.9f),
                     contentColor = backgroundColor,
                     size = 58.dp,
@@ -193,6 +196,7 @@ fun FocusTimerScreen(viewModel: TimerViewModel) {
         }
     }
 }
+
 // ============================================================
 // BEAUTIFUL NEW TIMER VISUALS & COMPONENTS (replacing old basic UI)
 // ============================================================
@@ -271,7 +275,7 @@ fun TimerProgressCircle(
                 letterSpacing = (-2).sp
             )
             Text(
-                text = if (state.isWorkSession) "FOKUS" else "PAUSE",
+                text = if (state.isWorkSession) stringResource(R.string.label_focus) else stringResource(R.string.label_pause),
                 color = TextOnColorSecondary,
                 fontSize = 12.sp,
                 letterSpacing = 4.sp,
@@ -319,15 +323,15 @@ fun AchievementCard(state: TimerState) {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            StatItem(value = "${state.sessionsCompleted}", label = "Sessions", icon = Icons.Filled.EmojiEvents)
+            StatItem(value = "${state.sessionsCompleted}", label = stringResource(R.string.stat_sessions), icon = Icons.Filled.EmojiEvents)
             VerticalDivider(color = TextOnColor.copy(alpha = 0.18f), modifier = Modifier.height(36.dp))
-            StatItem(value = "${state.totalFocusMinutes}", label = "Minuten", icon = Icons.Filled.Timer)
+            StatItem(value = "${state.totalFocusMinutes}", label = stringResource(R.string.stat_minutes), icon = Icons.Filled.Timer)
             if (state.currentStreak > 1) {
                 VerticalDivider(color = TextOnColor.copy(alpha = 0.18f), modifier = Modifier.height(36.dp))
-                StatItem(value = "${state.currentStreak} Tage", label = "Streak 🔥", icon = Icons.Filled.Whatshot)
+                StatItem(value = stringResource(R.string.stat_days, state.currentStreak), label = stringResource(R.string.stat_streak), icon = Icons.Filled.Whatshot)
             } else {
                 VerticalDivider(color = TextOnColor.copy(alpha = 0.18f), modifier = Modifier.height(36.dp))
-                StatItem(value = "${state.totalFocusMinutes / 60}h", label = "Heute", icon = Icons.Filled.TrendingUp)
+                StatItem(value = "${state.totalFocusMinutes / 60}h", label = stringResource(R.string.stat_today), icon = Icons.Filled.TrendingUp)
             }
         }
     }
@@ -351,13 +355,13 @@ fun QuickDurationCard(state: TimerState, viewModel: TimerViewModel) {
         shape = RoundedCornerShape(18.dp)
     ) {
         Column(Modifier.padding(16.dp)) {
-            Text("Schnelle Anpassung", color = TextOnColor, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+            Text(stringResource(R.string.quick_adjust), color = TextOnColor, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
             Spacer(Modifier.height(10.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                DurationAdjuster("Fokus", state.workMinutes, !state.isRunning,
+                DurationAdjuster(stringResource(R.string.duration_focus), state.workMinutes, !state.isRunning,
                     { viewModel.setWorkMinutes((state.workMinutes - 1).coerceAtLeast(5)) },
                     { viewModel.setWorkMinutes((state.workMinutes + 1).coerceAtMost(60)) })
-                DurationAdjuster("Pause", state.breakMinutes, !state.isRunning,
+                DurationAdjuster(stringResource(R.string.duration_break), state.breakMinutes, !state.isRunning,
                     { viewModel.setBreakMinutes((state.breakMinutes - 1).coerceAtLeast(1)) },
                     { viewModel.setBreakMinutes((state.breakMinutes + 1).coerceAtMost(30)) })
             }
@@ -372,7 +376,7 @@ private fun DurationAdjuster(label: String, value: Int, enabled: Boolean, onMinu
         Spacer(Modifier.height(4.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
             SmallRoundButton("−", enabled, onMinus)
-            Text("$value min", color = TextOnColor, fontSize = 14.sp, fontWeight = FontWeight.Bold, modifier = Modifier.widthIn(min = 58.dp), textAlign = TextAlign.Center)
+            Text(stringResource(R.string.duration_min, value), color = TextOnColor, fontSize = 14.sp, fontWeight = FontWeight.Bold, modifier = Modifier.widthIn(min = 58.dp), textAlign = TextAlign.Center)
             SmallRoundButton("+", enabled, onPlus)
         }
     }
@@ -392,21 +396,21 @@ private fun SmallRoundButton(text: String, enabled: Boolean, onClick: () -> Unit
 @Composable
 fun SettingsBottomSheetContent(state: TimerState, viewModel: TimerViewModel, onDismiss: () -> Unit) {
     Column(Modifier.fillMaxWidth().padding(horizontal = 22.dp, vertical = 8.dp)) {
-        Text("Einstellungen", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
+        Text(stringResource(R.string.settings), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold)
         Spacer(Modifier.height(16.dp))
 
-        Text("Dauer anpassen", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(stringResource(R.string.settings_adjust_duration), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(Modifier.height(8.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
             DurationSettingCard(
-                title = "Fokus", value = state.workMinutes, unit = "min",
+                title = stringResource(R.string.duration_focus), value = state.workMinutes, unit = "min",
                 onDec = { viewModel.setWorkMinutes((state.workMinutes-1).coerceAtLeast(5)) },
                 onInc = { viewModel.setWorkMinutes((state.workMinutes+1).coerceAtMost(60)) },
                 enabled = !state.isRunning,
                 modifier = Modifier.weight(1f)
             )
             DurationSettingCard(
-                title = "Pause", value = state.breakMinutes, unit = "min",
+                title = stringResource(R.string.duration_break), value = state.breakMinutes, unit = "min",
                 onDec = { viewModel.setBreakMinutes((state.breakMinutes-1).coerceAtLeast(1)) },
                 onInc = { viewModel.setBreakMinutes((state.breakMinutes+1).coerceAtMost(30)) },
                 enabled = !state.isRunning,
@@ -418,15 +422,15 @@ fun SettingsBottomSheetContent(state: TimerState, viewModel: TimerViewModel, onD
         HorizontalDivider()
         Spacer(Modifier.height(12.dp))
 
-        Text("Erlebnis & Feedback", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(stringResource(R.string.settings_experience), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(Modifier.height(6.dp))
 
-        SettingRow(Icons.Filled.Notifications, "Benachrichtigungen", "Session-Ende Alarm", true) {}
-        SettingRow(Icons.Filled.Vibration, "Haptik", "Starkes Feedback bei Wechsel", true) {}
+        SettingRow(Icons.Filled.Notifications, stringResource(R.string.settings_notifications), stringResource(R.string.settings_notifications_sub), true) {}
+        SettingRow(Icons.Filled.Vibration, stringResource(R.string.settings_haptics), stringResource(R.string.settings_haptics_sub), true) {}
 
         Spacer(Modifier.height(28.dp))
         Button(onClick = onDismiss, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = FocusBlue)) {
-            Text("Schließen", color = Color.White, fontWeight = FontWeight.SemiBold)
+            Text(stringResource(R.string.btn_close), color = Color.White, fontWeight = FontWeight.SemiBold)
         }
         Spacer(Modifier.height(12.dp))
     }

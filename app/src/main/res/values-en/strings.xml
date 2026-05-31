@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">FocusFlow</string>
+
+    <!-- Header -->
+    <string name="phase_focus">Focus Phase</string>
+    <string name="phase_break">Break Time</string>
+
+    <!-- Timer labels -->
+    <string name="label_focus">FOCUS</string>
+    <string name="label_pause">BREAK</string>
+
+    <!-- Control buttons -->
+    <string name="btn_start">Start</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_break">Break</string>
+    <string name="btn_focus">Focus</string>
+    <string name="btn_reset">Reset</string>
+
+    <!-- Achievement card -->
+    <string name="stat_sessions">Sessions</string>
+    <string name="stat_minutes">Minutes</string>
+    <string name="stat_streak">Streak 🔥</string>
+    <string name="stat_today">Today</string>
+    <string name="stat_days">%d days</string>
+
+    <!-- Quick duration card -->
+    <string name="quick_adjust">Quick Adjust</string>
+    <string name="duration_focus">Focus</string>
+    <string name="duration_break">Break</string>
+    <string name="duration_min">%d min</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Settings</string>
+    <string name="settings_adjust_duration">Adjust Duration</string>
+    <string name="settings_experience">Experience &amp; Feedback</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_sub">Session end alarm</string>
+    <string name="settings_haptics">Haptics</string>
+    <string name="settings_haptics_sub">Strong feedback on session change</string>
+    <string name="btn_close">Close</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_settings">Settings</string>
+</resources>
+
