@@ -13,3 +13,12 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Signing & secrets (never commit)
+*.jks
+*.keystore
+keystore.properties
+play-service-account.json
+**/secrets*
+.ci-secrets/
+
