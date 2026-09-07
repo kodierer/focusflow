@@ -19,10 +19,24 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("../focusflow-release.jks")
-            storePassword = "focusflow2024"
-            keyAlias = "focusflow"
-            keyPassword = "focusflow2024"
+            val keystorePropertiesFile = rootProject.file("keystore.properties")
+            val keystoreProperties = java.util.Properties()
+            if (keystorePropertiesFile.exists()) {
+                keystoreProperties.load(keystorePropertiesFile.inputStream())
+            }
+
+            fun signingProp(name: String): String? =
+                System.getenv(name)
+                    ?: (project.findProperty(name) as String?)
+                    ?: keystoreProperties.getProperty(name)
+
+            val keystoreFilePath = signingProp("KEYSTORE_FILE")
+            if (!keystoreFilePath.isNullOrBlank()) {
+                storeFile = rootProject.file(keystoreFilePath)
+                storePassword = signingProp("KEYSTORE_PASSWORD")
+                keyAlias = signingProp("KEY_ALIAS")
+                keyPassword = signingProp("KEY_PASSWORD")
+            }
         }
     }
 
@@ -34,7 +48,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("release")
+            val releaseSigning = signingConfigs.getByName("release")
+            if (releaseSigning.storeFile != null) {
+                signingConfig = releaseSigning
+            }
         }
         debug {
             isMinifyEnabled = false
