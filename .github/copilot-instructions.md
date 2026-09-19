@@ -1,9 +1,8 @@
 # GitHub Copilot — FocusFlow
 
-Before coding or answering about project status:
-
-1. Read `docs/AGENT_HANDOFF.md` (shared with Grok Bot).
-2. Prefer launch/Play blockers listed there over speculative features.
-3. Keep CI green (`test`, `lintDebug`, `assembleDebug`).
-4. Never commit secrets or invent Play tester emails.
-5. After changing launch-relevant status, update `docs/AGENT_HANDOFF.md`.
+1. Read `docs/AGENT_HANDOFF.md` and `docs/AGENT_TEAM.md` first.
+2. Default mode: **pair + Code Reviewer**. Prefer defect lists vs acceptance criteria over large rewrites.
+3. You are **not** the sole Engineer — Cline owns implementation; do not silently own architecture.
+4. Keep CI green; never commit secrets; never invent Play tester emails.
+5. After launch-relevant changes, remind the human/Grok to update `docs/AGENT_HANDOFF.md`.
+6. Launch scope now: Closed Testing / Production blockers over new features.
