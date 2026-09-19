@@ -1,7 +1,8 @@
 # Agent-Übergabe — FocusFlow
 
-**Zweck:** Gemeinsame Wahrheit für **GitHub Copilot** (VS Code) und **Grok Bot**. Bei Session-Start lesen; nach relevanten Änderungen aktualisieren und committen.
+**Zweck:** Gemeinsame Wahrheit für **Grok Bot**, **GitHub Copilot** und **Cline**. Bei Session-Start lesen; nach relevanten Änderungen aktualisieren und committen.
 
+**Team-Playbook:** [`docs/AGENT_TEAM.md`](AGENT_TEAM.md)  
 **Stand:** 2026-09-19 (Europe/Berlin)  
 **Repo:** `kodierer/focusflow` · Branch: `main`  
 **Package:** `com.kodierer.focusflow`  
@@ -11,15 +12,17 @@
 
 ---
 
-## Rollen
+## Rollen (Kurz)
 
-|| Wer | Typische Aufgaben |
-|-----|-------------------|
-| **Copilot / Cline** | Code, Tests, Lint, lokale Builds, CI-grün halten |
-| **Grok Bot** | Play Console, Drupal/Website, GitHub Issues/Wiki, Orchestrierung |
-| **PO (Jörg-Frieder)** | Merge-Authority, Play-Submit, Tester-Mails |
+| Wer | Rolle |
+|-----|--------|
+| **Du (Jörg-Frieder)** | PO, Tech Lead, Merge & Production |
+| **Grok Bot (`fuckedup`)** | Orchestrator, DevOps/Play/Website |
+| **Grok `FF-PM` / `FF-Architect` / `FF-QA` / `FF-Security` / `FF-Reviewer`** | Phasen-Spezialisten (eigene Chats) |
+| **Cline** | Engineer (Code, Tests ausführen, CI) |
+| **Copilot** | Pair + unabhängiger Review-Pass |
 
-Kein Live-Sync der Chats — dieses File + Issues/PRs sind die Brücke.
+Kein Live-Sync der Chats — dieses File + Issues/PRs + `AGENT_TEAM.md` sind die Brücke.
 
 ---
 
@@ -32,18 +35,19 @@ Kein Live-Sync der Chats — dieses File + Issues/PRs sind die Brücke.
 - [x] Issues + Labels + Templates; Wiki Home / Closed-Testing / Play-Launch
 - [x] friedermossmann.de: Drupal 10.6.2 neu; Frontpage Visitenkarte + FocusFlow (`/node/1`)
 - [x] Docs: `docs/CLOSED_TESTING.md`, `docs/PLAY_LAUNCH_CHECKLIST.md`
+- [x] Agent-Handoff + Copilot-Instructions + Agent-Team-Playbook
 
 ---
 
 ## Offen (Priorität)
 
-1. **Closed Testing:** ≥12 echte Google-Tester-Accounts → Gruppen/E-Mails in Play → Alpha-Release (1.1/v4 war draft, DE) **submitten** — keine Fake-Mails.
-2. **≥14 Tage** Closed Testing erfüllen (persönliches Play-Konto).
-3. **Production**-Zugang beantragen / Production-Release.
+1. **Closed Testing:** ≥12 echte Google-Tester-Accounts → Play → Alpha **submitten** — keine Fake-Mails.
+2. **≥14 Tage** Closed Testing (persönliches Play-Konto).
+3. **Production**-Zugang / Production-Release.
 4. Optional: EN Store-Listing (#5).
-5. Code-Bugs aus älterer Übergabe (`UEBERGABE_DOKUMENTATION.md`, Mai 2026) nur anfassen wenn noch reproduzierbar — Launch hat Vorrang vor Feature-Arbeit.
+5. Alte Code-Bugs (`UEBERGABE_DOKUMENTATION.md`) nur wenn noch reproduzierbar — Launch hat Vorrang.
 
-Issues: [#2](https://github.com/kodierer/focusflow/issues/2) Closed Testing · [#3](https://github.com/kodierer/focusflow/issues/3) Production · [#4](https://github.com/kodierer/focusflow/issues/4) Tester · [#5](https://github.com/kodierer/focusflow/issues/5) EN Listing
+Issues: [#2](https://github.com/kodierer/focusflow/issues/2) · [#3](https://github.com/kodierer/focusflow/issues/3) · [#4](https://github.com/kodierer/focusflow/issues/4) · [#5](https://github.com/kodierer/focusflow/issues/5)
 
 ---
 
@@ -52,15 +56,16 @@ Issues: [#2](https://github.com/kodierer/focusflow/issues/2) Closed Testing · [
 - Keine Secrets/Keystore-Passwörter in Git oder Chat
 - Keine erfundenen Tester-Gmails
 - Keine neuen Features vor Production-Launch (Scope: Listing/Compliance)
+- Implementierer ≠ Reviewer (siehe `AGENT_TEAM.md`)
 
 ---
 
 ## Wie aktualisieren
 
 1. Abschnitt **Stand** + Checkboxen anpassen.
-2. Kurz **Letzte Änderung** unten ergänzen (Datum, Agent, 1 Zeile).
+2. **Letzte Änderung** unten ergänzen (Datum, Agent, 1 Zeile).
 3. Commit z. B. `docs: update AGENT_HANDOFF`.
 
 ### Letzte Änderung
 
-- 2026-09-19 — Grok Bot: Datei angelegt (Drupal live, Website in Play/GitHub, Closed Testing noch offen).
+- 2026-09-19 — Grok Bot: Agent-Team-Playbook; Handoff auf Grok+Copilot+Cline erweitert.
