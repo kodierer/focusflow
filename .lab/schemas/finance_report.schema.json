@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FinanceReport",
+  "type": "object",
+  "required": [
+    "burn_this_iteration_est",
+    "burn_total_est",
+    "budget_remaining_est",
+    "cost_per_maturity_point",
+    "score_delta_summary",
+    "recommendation",
+    "reasons",
+    "assumptions_used",
+    "next_round_should_skip",
+    "status",
+    "iteration",
+    "role",
+    "created_at"
+  ],
+  "properties": {
+    "burn_this_iteration_est": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "burn_total_est": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "budget_remaining_est": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "cost_per_maturity_point": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "score_delta_summary": {
+      "type": "string"
+    },
+    "recommendation": {
+      "enum": [
+        "continue",
+        "continue_cheap",
+        "stop_ship",
+        "stop_kill",
+        "ask_human"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "string"
+      }
+    },
+    "assumptions_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_round_should_skip": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "done",
+        "blocked",
+        "partial"
+      ]
+    },
+    "iteration": {
+      "type": "integer"
+    },
+    "role": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

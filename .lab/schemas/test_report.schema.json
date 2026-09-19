@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TestReport",
+  "type": "object",
+  "required": [
+    "persona_id",
+    "iteration",
+    "task_success",
+    "abort_reason",
+    "scores",
+    "top_frictions",
+    "recommend_to_friend",
+    "evidence",
+    "suggested_fixes",
+    "status",
+    "role",
+    "created_at"
+  ],
+  "properties": {
+    "persona_id": {
+      "type": "string"
+    },
+    "iteration": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "task_success": {
+      "type": "boolean"
+    },
+    "abort_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "usability",
+        "fun",
+        "trust",
+        "clarity",
+        "value"
+      ],
+      "properties": {
+        "usability": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "fun": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "trust": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "clarity": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        }
+      }
+    },
+    "top_frictions": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommend_to_friend": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "string"
+    },
+    "suggested_fixes": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "fix",
+          "effort"
+        ],
+        "properties": {
+          "fix": {
+            "type": "string"
+          },
+          "effort": {
+            "enum": [
+              "S",
+              "M",
+              "L"
+            ]
+          }
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "done",
+        "blocked",
+        "partial"
+      ]
+    },
+    "role": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}
