@@ -1,5 +1,7 @@
 # FocusFlow - Der ultimative Produktivitäts-Timer
 
+**Website:** [friedermossmann.de](https://friedermossmann.de/)
+
 Eine moderne, benutzerfreundliche Pomodoro-Timer App für Android mit Material 3 Design.
 
 ##  Features
@@ -10,7 +12,10 @@ Eine moderne, benutzerfreundliche Pomodoro-Timer App für Android mit Material 3
 - **Echtzeit-Farbwechsel**: Blau für Arbeit, Grün für Pause - visuelles Feedback
 - **Play/Pause/Reset**: Vollständige Timer-Kontrolle
 
-###  Statistiken & Tracking
+### Statistiken & Tracking
+
+
+
 - **Session-Counter**: Wie viele Sitzungen haben Sie heute abgeschlossen?
 - **Fokus-Zeit-Tracking**: Gesamte Minuten, die Sie fokussiert haben
 - **Tägliche Statistik**: Sehen Sie sofort, wie viele Stunden Sie heute gearbeitet haben
