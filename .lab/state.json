@@ -1,11 +1,31 @@
 {
-  "schema_version": "pending",
-  "product": "FocusFlow",
-  "repo": "kodierer/focusflow",
-  "auftrag": null,
-  "phase": "setup",
-  "status": "blocked",
+  "project_name": "FocusFlow",
   "iteration": 0,
-  "blocked_reason": "Ordnerstruktur Abschnitt im Setup-Auftrag fehlte",
-  "updated": "2026-09-19"
+  "phase": "bootstrap",
+  "repo_ref": "main",
+  "active_ticket": null,
+  "maturity": {
+    "functional": null,
+    "ux": null,
+    "fun": null,
+    "reliability": null,
+    "market_clarity": null,
+    "risk": null
+  },
+  "last_delta": {},
+  "budget": {
+    "currency": "EUR",
+    "cap_total": null,
+    "spent_est": 0,
+    "spent_copilot_requests_est": 0,
+    "spent_human_hours_est": 0,
+    "last_iteration_est": 0
+  },
+  "finance_recommendation": null,
+  "human_eval_due": false,
+  "stagnant_iterations": 0,
+  "max_iterations": 8,
+  "max_changes_per_iteration": 3,
+  "status": "setup",
+  "notes": "Setup complete pending human: fill assumptions budget, verify Copilot Coding Agent, confirm app runnable. Inbox iter-00-pm-bootstrap ready — do not start until human says so."
 }
