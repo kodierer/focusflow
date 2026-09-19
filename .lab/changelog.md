@@ -1,13 +1,9 @@
 # Changelog
 
-Format pro Eintrag:
-
-```
-## YYYY-MM-DD — Iteration N — phase
-- Was: …
-- Ticket/PR: …
-- repo_ref: …
-```
+## 2026-09-19 — Iteration 0 — spec (meta)
+- Was: Ticket-Dokumentationsvertrag, Meta-Steward-Agent, Plugin/OSS-Recherche-Outbox
+- Ticket/PR: Lab-Issues + PR #6 Branch lab/bootstrap-vpl
+- repo_ref: lab/bootstrap-vpl
 
 ## 2026-09-19 — Iteration 0 — spec
 - Was: PM Bootstrap — Spec (≤6 Kernaufgaben), Backlog I0, state.phase=spec

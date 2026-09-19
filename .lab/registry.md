@@ -21,3 +21,10 @@
 
 ## Personas Runde 1
 Nur: `newbie`, `power_user`, `chaos`, `buyer`. Andere existieren; Finance darf später zuschalten.
+
+
+## Meta
+| File | Role |
+|------|------|
+| [agents/meta_steward.md](agents/meta_steward.md) | Kontinuierliche Setup-/Workflow-Beurteilung |
+| [graph/ticket_documentation.md](graph/ticket_documentation.md) | Pflicht: Arbeit im Ticketsystem |

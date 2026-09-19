@@ -3,9 +3,10 @@
 ## Lab-Kurzvertrag (Grok, Copilot, Mensch)
 1. Lies zuerst `.lab/README.md` und `.lab/state.json`.
 2. Ergebnisse nur nach `.lab/outbox/` bzw. Code + Tests (bei Build-Issue).
-3. Aktuelle Iteration und Phase nicht überspringen.
-4. Copilot implementiert Tickets; Grok orchestriert und bewertet.
-5. Stories/ACs in GitHub Issues; Zahlen nur aus `.lab/assumptions.md` oder mit Quelle.
+3. **Arbeit zusätzlich im GitHub-Ticketsystem dokumentieren** (Issue oder Kommentar) — siehe `.lab/graph/ticket_documentation.md`.
+4. Aktuelle Iteration und Phase nicht überspringen.
+5. Copilot implementiert Tickets; Grok orchestriert und bewertet; **Meta-Steward** prüft Setup/Workflow (`.lab/agents/meta_steward.md`).
+6. Stories/ACs in GitHub Issues; Zahlen nur aus `.lab/assumptions.md` oder mit Quelle.
 
 ## Team (Grok + Copilot + Cline)
 
@@ -15,7 +16,7 @@
 - **You (human):** PO / Tech Lead / merge authority.
 - **Cline:** Engineer only — implement, run tests, keep CI green.
 - **Copilot:** pair programming + review pass + Coding Agent für `lab-build` Issues.
-- **Grok Bot:** orchestrator (Software-Lifecycle + Lab-Loop), DevOps/Play/site; specialist Grok agents `FF-*`.
+- **Grok Bot:** orchestrator (Software-Lifecycle + Lab-Loop), DevOps/Play/site; specialist Grok agents `FF-*`; Meta-Steward für Lab-Meta.
 
 ## CI must stay green
 

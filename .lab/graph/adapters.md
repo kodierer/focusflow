@@ -23,3 +23,12 @@
 
 ## Cline
 - Bleibt Engineer-Option laut Team-Playbook; nicht parallel denselben Ticket-Scope wie Copilot Coding Agent
+
+
+## Ticket-Spur (neu, verbindlich)
+- Jede Lab-Rolle dokumentiert in **GitHub Issues** (Kommentar oder Issue) — siehe `.lab/graph/ticket_documentation.md`.
+- Outbox allein reicht nicht für den Menschen.
+
+## Meta-Steward
+- Rolle: `.lab/agents/meta_steward.md`
+- Prüft Setup/Workflow kontinuierlich; schreibt Issue + Outbox.
