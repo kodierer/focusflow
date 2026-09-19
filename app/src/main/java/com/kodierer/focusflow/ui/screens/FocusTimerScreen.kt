@@ -302,42 +302,8 @@ fun ControlButton(
             shadowElevation = 8.dp,
             modifier = Modifier.size(size)
         ) {
-<<<<<<< HEAD
-            Button(
-                onClick = onDecrease,
-                enabled = isEnabled,
-                modifier = Modifier.size(36.dp),
-                contentPadding = PaddingValues(0.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.White.copy(alpha = 0.3f),
-                    disabledContainerColor = Color.White.copy(alpha = 0.1f)
-                )
-            ) {
-                Text("-", color = Color.White, fontSize = 18.sp)
-            }
-            Text(
-                text = "$value min",
-                color = Color.White,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.width(50.dp),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
-            )
-            Button(
-                onClick = onIncrease,
-                enabled = isEnabled,
-                modifier = Modifier.size(36.dp),
-                contentPadding = PaddingValues(0.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.White.copy(alpha = 0.3f),
-                    disabledContainerColor = Color.White.copy(alpha = 0.1f)
-                )
-            ) {
-                Text("+", color = Color.White, fontSize = 18.sp)
-=======
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Icon(icon, label, tint = contentColor, modifier = Modifier.size(size * 0.40f))
->>>>>>> d1df314 (feat(ui): Major attractiveness overhaul for FocusFlow)
             }
         }
         Spacer(Modifier.height(5.dp))
