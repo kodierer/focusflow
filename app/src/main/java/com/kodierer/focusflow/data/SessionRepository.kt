@@ -3,6 +3,15 @@ package com.kodierer.focusflow.data
 import android.content.Context
 import android.content.SharedPreferences
 
+data class PersistedTimerState(
+    val workMinutes: Int,
+    val breakMinutes: Int,
+    val timeLeft: Int,
+    val isRunning: Boolean,
+    val isWorkSession: Boolean,
+    val savedAtMillis: Long
+)
+
 class SessionRepository(context: Context) {
     private val sharedPreferences: SharedPreferences = 
         context.getSharedPreferences("focus_timer_prefs", Context.MODE_PRIVATE)
@@ -41,9 +50,41 @@ class SessionRepository(context: Context) {
         }.apply()
     }
 
+    fun saveTimerState(timerState: PersistedTimerState) {
+        sharedPreferences.edit().apply {
+            putInt(TIMER_WORK_MINUTES_KEY, timerState.workMinutes)
+            putInt(TIMER_BREAK_MINUTES_KEY, timerState.breakMinutes)
+            putInt(TIMER_TIME_LEFT_KEY, timerState.timeLeft)
+            putBoolean(TIMER_IS_RUNNING_KEY, timerState.isRunning)
+            putBoolean(TIMER_IS_WORK_SESSION_KEY, timerState.isWorkSession)
+            putLong(TIMER_SAVED_AT_KEY, timerState.savedAtMillis)
+        }.apply()
+    }
+
+    fun getTimerState(): PersistedTimerState? {
+        if (!sharedPreferences.contains(TIMER_TIME_LEFT_KEY)) {
+            return null
+        }
+
+        return PersistedTimerState(
+            workMinutes = sharedPreferences.getInt(TIMER_WORK_MINUTES_KEY, 25),
+            breakMinutes = sharedPreferences.getInt(TIMER_BREAK_MINUTES_KEY, 5),
+            timeLeft = sharedPreferences.getInt(TIMER_TIME_LEFT_KEY, 25 * 60),
+            isRunning = sharedPreferences.getBoolean(TIMER_IS_RUNNING_KEY, false),
+            isWorkSession = sharedPreferences.getBoolean(TIMER_IS_WORK_SESSION_KEY, true),
+            savedAtMillis = sharedPreferences.getLong(TIMER_SAVED_AT_KEY, 0L)
+        )
+    }
+
     companion object {
         private const val SESSIONS_KEY = "sessions_completed"
         private const val FOCUS_MINUTES_KEY = "total_focus_minutes"
         private const val TODAY_DATE_KEY = "today_date"
+        private const val TIMER_WORK_MINUTES_KEY = "timer_work_minutes"
+        private const val TIMER_BREAK_MINUTES_KEY = "timer_break_minutes"
+        private const val TIMER_TIME_LEFT_KEY = "timer_time_left"
+        private const val TIMER_IS_RUNNING_KEY = "timer_is_running"
+        private const val TIMER_IS_WORK_SESSION_KEY = "timer_is_work_session"
+        private const val TIMER_SAVED_AT_KEY = "timer_saved_at"
     }
 }

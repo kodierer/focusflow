@@ -5,7 +5,9 @@ import org.junit.Test
 import org.junit.Assert.*
 import android.content.Context
 import android.content.SharedPreferences
+import org.mockito.ArgumentMatchers.anyBoolean
 import org.mockito.ArgumentMatchers.anyInt
+import org.mockito.ArgumentMatchers.anyLong
 import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mockito.*
 import org.mockito.kotlin.verify
@@ -32,6 +34,8 @@ class SessionRepositoryTest {
             .thenReturn(mockSharedPreferences)
         `when`(mockSharedPreferences.edit()).thenReturn(mockEditor)
         `when`(mockEditor.putInt(anyString(), anyInt())).thenReturn(mockEditor)
+        `when`(mockEditor.putBoolean(anyString(), anyBoolean())).thenReturn(mockEditor)
+        `when`(mockEditor.putLong(anyString(), anyLong())).thenReturn(mockEditor)
         `when`(mockEditor.putString(anyString(), anyString())).thenReturn(mockEditor)
         `when`(mockEditor.apply()).then { /* no-op for test */ }
 
@@ -96,6 +100,56 @@ class SessionRepositoryTest {
 
         verify(mockEditor).putString("today_date", "2026-05-15")
         verify(mockEditor).apply()
+    }
+
+    @Test
+    fun save_timer_state_stores_all_values() {
+        repository.saveTimerState(
+            PersistedTimerState(
+                workMinutes = 30,
+                breakMinutes = 7,
+                timeLeft = 1234,
+                isRunning = true,
+                isWorkSession = false,
+                savedAtMillis = 42L
+            )
+        )
+
+        verify(mockEditor).putInt("timer_work_minutes", 30)
+        verify(mockEditor).putInt("timer_break_minutes", 7)
+        verify(mockEditor).putInt("timer_time_left", 1234)
+        verify(mockEditor).putBoolean("timer_is_running", true)
+        verify(mockEditor).putBoolean("timer_is_work_session", false)
+        verify(mockEditor).putLong("timer_saved_at", 42L)
+        verify(mockEditor).apply()
+    }
+
+    @Test
+    fun get_timer_state_returns_null_when_not_saved() {
+        whenever(mockSharedPreferences.contains("timer_time_left")).thenReturn(false)
+
+        assertNull(repository.getTimerState())
+    }
+
+    @Test
+    fun get_timer_state_returns_saved_values() {
+        whenever(mockSharedPreferences.contains("timer_time_left")).thenReturn(true)
+        whenever(mockSharedPreferences.getInt("timer_work_minutes", 25)).thenReturn(35)
+        whenever(mockSharedPreferences.getInt("timer_break_minutes", 5)).thenReturn(9)
+        whenever(mockSharedPreferences.getInt("timer_time_left", 25 * 60)).thenReturn(777)
+        whenever(mockSharedPreferences.getBoolean("timer_is_running", false)).thenReturn(true)
+        whenever(mockSharedPreferences.getBoolean("timer_is_work_session", true)).thenReturn(false)
+        whenever(mockSharedPreferences.getLong("timer_saved_at", 0L)).thenReturn(99L)
+
+        val timerState = repository.getTimerState()
+
+        assertNotNull(timerState)
+        assertEquals(35, timerState?.workMinutes)
+        assertEquals(9, timerState?.breakMinutes)
+        assertEquals(777, timerState?.timeLeft)
+        assertTrue(timerState?.isRunning == true)
+        assertTrue(timerState?.isWorkSession == false)
+        assertEquals(99L, timerState?.savedAtMillis)
     }
 
     @Test

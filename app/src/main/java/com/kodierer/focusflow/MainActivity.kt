@@ -36,4 +36,9 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onStop() {
+        viewModel.persistTimerState()
+        super.onStop()
+    }
 }
