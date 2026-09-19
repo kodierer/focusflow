@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Play Console / Closed Testing
+    url: https://github.com/kodierer/focusflow/blob/main/docs/CLOSED_TESTING.md
+    about: Ablauf Closed Testing und Opt-in (Doku im Repo).
+  - name: Play Launch Checklist
+    url: https://github.com/kodierer/focusflow/blob/main/docs/PLAY_LAUNCH_CHECKLIST.md
+    about: Checkliste vor Production / Store-Launch.

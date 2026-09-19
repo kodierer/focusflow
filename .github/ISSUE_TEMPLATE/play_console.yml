@@ -1,0 +1,42 @@
+name: Play Console / Launch
+description: Store-Listing, Closed Testing, Production, CI→Play
+title: "[Play] "
+labels: ["play-store"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Bereich
+      options:
+        - closed-testing
+        - store-listing
+        - app-content / declarations
+        - production access
+        - ci / AAB upload
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Ziel
+      description: Was soll erledigt sein, wenn dieses Ticket zu ist?
+    validations:
+      required: true
+  - type: textarea
+    id: status
+    attributes:
+      label: Aktueller Stand
+      placeholder: z. B. Alpha 1.1/v4 noch draft, DE only, keine Tester-Mails
+  - type: textarea
+    id: next
+    attributes:
+      label: Nächste konkrete Schritte
+    validations:
+      required: true
+  - type: input
+    id: links
+    attributes:
+      label: Links
+      description: Console-URL, Opt-in, Docs
+      placeholder: https://play.google.com/...

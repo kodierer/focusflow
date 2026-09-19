@@ -1,0 +1,59 @@
+name: Bug report
+description: Etwas funktioniert nicht in der App oder im Build
+title: "[Bug] "
+labels: ["bug", "android"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke für den Report. Bitte so konkret wie möglich.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Kurzbeschreibung
+      description: Was ist kaputt?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Schritte zur Reproduktion
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Erwartetes Verhalten
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Tatsächliches Verhalten
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App-Version / versionCode
+      placeholder: z. B. 1.1 / 4
+  - type: input
+    id: device
+    attributes:
+      label: Gerät / Android-Version
+      placeholder: z. B. Pixel 7 / Android 15
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Schwere
+      options:
+        - blocker
+        - major
+        - minor
+        - cosmetic
+    validations:
+      required: true

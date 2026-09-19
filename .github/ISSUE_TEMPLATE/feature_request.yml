@@ -1,0 +1,32 @@
+name: Feature request
+description: Idee oder Verbesserung für FocusFlow
+title: "[Feature] "
+labels: ["enhancement", "android"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Motivation
+      description: Welches Bedürfnis soll das Feature lösen?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Vorschlag
+      description: Wie soll es sich anfühlen?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativen
+      description: Andere Wege, die du schon überlegt hast (optional)
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Grobe Priorität
+      options:
+        - nice-to-have
+        - should-have
+        - must-have
