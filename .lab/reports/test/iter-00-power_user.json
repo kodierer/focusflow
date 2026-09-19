@@ -1,0 +1,38 @@
+{
+  "persona_id": "power_user",
+  "iteration": 0,
+  "task_success": true,
+  "abort_reason": null,
+  "scores": {
+    "usability": 3,
+    "fun": 2,
+    "trust": 3,
+    "clarity": 3,
+    "value": 2
+  },
+  "top_frictions": [
+    "Settings nur wenn !isRunning — gut, aber keine Presets/Shortcuts sichtbar im ViewModel",
+    "toggleSession startet sofort neu — wenig Feinkontrollegefühl",
+    "Stats nur Tages-Sessions/Fokusminuten + Streak — wenig Konkurrenz-Tiefe"
+  ],
+  "recommend_to_friend": "Als Alltags-Timer brauchbar; Power-User wechseln eher zu Apps mit Widgets/History, bis Persistenz/Hintergrund klarer sind.",
+  "evidence": "TimerViewModel.setWorkMinutes/setBreakMinutes; SettingsScreen.kt; SessionRepository/AnalyticsRepository Hooks",
+  "suggested_fixes": [
+    {
+      "fix": "Explizites „Session-Typ wechseln ohne Sofort-Start“",
+      "effort": "S"
+    },
+    {
+      "fix": "Längere History/Charts erst nach Production (HANDOFF) — nur Backlog-Samen",
+      "effort": "L"
+    },
+    {
+      "fix": "Dokumentieren welche Stats den Neustart überleben",
+      "effort": "S"
+    }
+  ],
+  "status": "done",
+  "role": "tester",
+  "created_at": "2026-09-19T12:34:23Z",
+  "method_note": "simulated_from_spec_and_code_review_no_emulator"
+}

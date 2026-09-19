@@ -1,0 +1,38 @@
+{
+  "persona_id": "newbie",
+  "iteration": 0,
+  "task_success": true,
+  "abort_reason": null,
+  "scores": {
+    "usability": 3,
+    "fun": 3,
+    "trust": 3,
+    "clarity": 2,
+    "value": 3
+  },
+  "top_frictions": [
+    "Arbeit vs. Pause nur über State-Flag; ohne Live-UI unklar, wie stark das gelabelt ist",
+    "Nach Session-Ende startet Auto-Continue (switchSession→startTimer) — kann überrumpeln",
+    "Startbarkeit Emulator/Gerät: unknown (nicht in diesem Lauf verifiziert)"
+  ],
+  "recommend_to_friend": "Für den ersten Fokusblock vermutlich ok, wenn der Start-Button offensichtlich ist — Live-UI noch prüfen.",
+  "evidence": "spec.md Kernaufgaben 1–3; TimerViewModel.startTimer/pauseTimer/resetTimer/switchSession; FocusTimerScreen.kt vorhanden",
+  "suggested_fixes": [
+    {
+      "fix": "Beim ersten Start kurze, unübersehbare Beschriftung Arbeit/Pause + was „Start“ tut",
+      "effort": "S"
+    },
+    {
+      "fix": "Auto-Continue optional oder 3s Countdown bevor nächste Session startet",
+      "effort": "M"
+    },
+    {
+      "fix": "Mensch: einmal installDebug und Time-to-first-start messen",
+      "effort": "S"
+    }
+  ],
+  "status": "done",
+  "role": "tester",
+  "created_at": "2026-09-19T12:34:23Z",
+  "method_note": "simulated_from_spec_and_code_review_no_emulator"
+}

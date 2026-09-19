@@ -1,11 +1,16 @@
 # Changelog
 
+## 2026-09-19 — Iteration 0 — synth_test
+- Was: PO-Priorität ohne reale Tester; Runde 1 Reports + Synthese (max 3); Issue #10
+- Ticket/PR: #10
+- repo_ref: main
+
 ## 2026-09-19 — Iteration 0 — spec (meta)
-- Was: Ticket-Dokumentationsvertrag, Meta-Steward-Agent, Plugin/OSS-Recherche-Outbox
-- Ticket/PR: Lab-Issues + PR #6 Branch lab/bootstrap-vpl
-- repo_ref: lab/bootstrap-vpl
+- Was: Ticket-Dokumentation, Meta-Steward, Plugin/OSS-Recherche
+- Ticket/PR: #7 #8 #9; PR #6 merged
+- repo_ref: main
 
 ## 2026-09-19 — Iteration 0 — spec
-- Was: PM Bootstrap — Spec (≤6 Kernaufgaben), Backlog I0, state.phase=spec
-- Ticket/PR: lab inbox iter-00-pm-bootstrap; Branch lab/bootstrap-vpl (PR #6)
-- repo_ref: lab/bootstrap-vpl
+- Was: PM Bootstrap Spec
+- Ticket/PR: iter-00-pm-bootstrap; PR #6
+- repo_ref: main
