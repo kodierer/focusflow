@@ -1,0 +1,11 @@
+{
+  "schema_version": "pending",
+  "product": "FocusFlow",
+  "repo": "kodierer/focusflow",
+  "auftrag": null,
+  "phase": "setup",
+  "status": "blocked",
+  "iteration": 0,
+  "blocked_reason": "Ordnerstruktur Abschnitt im Setup-Auftrag fehlte",
+  "updated": "2026-09-19"
+}
