@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LabBuildTask",
+  "type": "object",
+  "required": [
+    "title",
+    "why",
+    "acceptance_criteria",
+    "files_hint",
+    "tests_to_run",
+    "out_of_scope"
+  ],
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "why": {
+      "type": "string"
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "files_hint": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests_to_run": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "out_of_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "spec_link": {
+      "type": "string"
+    },
+    "backlog_item": {
+      "type": "string"
+    }
+  }
+}

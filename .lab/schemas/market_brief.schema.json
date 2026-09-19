@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MarketBrief",
+  "type": "object",
+  "required": [
+    "icp",
+    "competitors",
+    "feature_gaps",
+    "positioning_one_liner",
+    "risks",
+    "unknowns",
+    "sources",
+    "status",
+    "iteration",
+    "role",
+    "created_at"
+  ],
+  "properties": {
+    "icp": {
+      "type": "string"
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "source",
+          "better",
+          "worse"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "better": {
+            "type": "string"
+          },
+          "worse": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "feature_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "positioning_one_liner": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "devil_appendix": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "done",
+        "blocked",
+        "partial"
+      ]
+    },
+    "iteration": {
+      "type": "integer"
+    },
+    "role": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

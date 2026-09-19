@@ -1,13 +1,22 @@
 # AGENTS.md — FocusFlow
 
+## Lab-Kurzvertrag (Grok, Copilot, Mensch)
+1. Lies zuerst `.lab/README.md` und `.lab/state.json`.
+2. Ergebnisse nur nach `.lab/outbox/` bzw. Code + Tests (bei Build-Issue).
+3. **Arbeit zusätzlich im GitHub-Ticketsystem dokumentieren** (Issue oder Kommentar) — siehe `.lab/graph/ticket_documentation.md`.
+4. Aktuelle Iteration und Phase nicht überspringen.
+5. Copilot implementiert Tickets; Grok orchestriert und bewertet; **Meta-Steward** prüft Setup/Workflow (`.lab/agents/meta_steward.md`).
+6. Stories/ACs in GitHub Issues; Zahlen nur aus `.lab/assumptions.md` oder mit Quelle.
+
 ## Team (Grok + Copilot + Cline)
 
 - **Playbook:** [`docs/AGENT_TEAM.md`](docs/AGENT_TEAM.md) — Rollen, Gates, Parallel-Workflow.
 - **Live status:** [`docs/AGENT_HANDOFF.md`](docs/AGENT_HANDOFF.md) — immer zuerst lesen und nach Launch-/Status-Änderungen aktualisieren.
+- **Lab:** [`.lab/README.md`](.lab/README.md) — Virtual Product Lab.
 - **You (human):** PO / Tech Lead / merge authority.
 - **Cline:** Engineer only — implement, run tests, keep CI green.
-- **Copilot:** pair programming + review pass (not self-approve of Cline’s own work).
-- **Grok Bot:** orchestrator (Software-Lifecycle Standard 0–7), DevOps/Play/site; specialist Grok agents `FF-*` for PM/Arch/QA/Security/Review.
+- **Copilot:** pair programming + review pass + Coding Agent für `lab-build` Issues.
+- **Grok Bot:** orchestrator (Software-Lifecycle + Lab-Loop), DevOps/Play/site; specialist Grok agents `FF-*`; Meta-Steward für Lab-Meta.
 
 ## CI must stay green
 

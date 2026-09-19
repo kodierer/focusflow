@@ -1,0 +1,33 @@
+{
+  "project_name": "FocusFlow",
+  "iteration": 0,
+  "phase": "spec",
+  "repo_ref": "lab/bootstrap-vpl",
+  "active_ticket": null,
+  "maturity": {
+    "functional": null,
+    "ux": null,
+    "fun": null,
+    "reliability": null,
+    "market_clarity": null,
+    "risk": null
+  },
+  "last_delta": {
+    "iter_00": "PM bootstrap: spec.md filled, phase->spec"
+  },
+  "budget": {
+    "currency": "EUR",
+    "cap_total": null,
+    "spent_est": 0,
+    "spent_copilot_requests_est": 0,
+    "spent_human_hours_est": 0.25,
+    "last_iteration_est": 0.25
+  },
+  "finance_recommendation": null,
+  "human_eval_due": false,
+  "stagnant_iterations": 0,
+  "max_iterations": 8,
+  "max_changes_per_iteration": 3,
+  "status": "ready",
+  "notes": "Iteration 0 PM done. Spec locked for lab. Waiting for human: merge PR #6 if needed, fill assumptions budget, then synth_test Runde 1 or continue launch #2/#4. No build without Auftrag."
+}
