@@ -1,0 +1,30 @@
+{
+  "burn_this_iteration_est": null,
+  "burn_total_est": null,
+  "budget_remaining_est": null,
+  "cost_per_maturity_point": null,
+  "score_delta_summary": "Synth R1: Reliability klar negativ (kein FGS/Kill); UX/Clarity gemischt; functional teilweise per Code plausibel, Live-UI unknown. Kein Budget-Cap → kein teures continue.",
+  "recommendation": "continue_cheap",
+  "reasons": [
+    "cap_total in assumptions = TODO → teures continue untersagt",
+    "Ein klarer P0-Blocker (Timer-State bei Kill) ohne Feature-Gießkanne",
+    "Keine realen Tester → Lab-Schritt ohne #4 weiter sinnvoll",
+    "Market diese Runde skippen",
+    "Human-Eval optional durch PO selbst, nicht blockierend"
+  ],
+  "assumptions_used": [
+    "Budget Cap TODO",
+    "Coding-Worker github_copilot",
+    "Reife reliability: keine offenen Blocker — aktuell Blocker vorhanden"
+  ],
+  "next_round_should_skip": [
+    "market",
+    "casual_fun",
+    "a11y",
+    "security"
+  ],
+  "status": "done",
+  "iteration": 0,
+  "role": "finance",
+  "created_at": "2026-09-19T12:36:50Z"
+}

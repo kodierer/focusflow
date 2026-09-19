@@ -1,9 +1,9 @@
 {
   "project_name": "FocusFlow",
   "iteration": 0,
-  "phase": "synth_test",
+  "phase": "build",
   "repo_ref": "main",
-  "active_ticket": "https://github.com/kodierer/focusflow/issues/10",
+  "active_ticket": "https://github.com/kodierer/focusflow/issues/11",
   "maturity": {
     "functional": null,
     "ux": null,
@@ -13,21 +13,21 @@
     "risk": null
   },
   "last_delta": {
-    "iter_00": "PM bootstrap + synth_test Runde 1 (code/spec), no real testers"
+    "iter_00": "finance continue_cheap → build P0 timer persist/restore"
   },
   "budget": {
     "currency": "EUR",
     "cap_total": null,
     "spent_est": 0,
     "spent_copilot_requests_est": 0,
-    "spent_human_hours_est": 0.5,
+    "spent_human_hours_est": 0.75,
     "last_iteration_est": 0.25
   },
-  "finance_recommendation": null,
+  "finance_recommendation": "continue_cheap",
   "human_eval_due": false,
   "stagnant_iterations": 0,
   "max_iterations": 8,
-  "max_changes_per_iteration": 3,
+  "max_changes_per_iteration": 1,
   "status": "ready",
-  "notes": "PO: no real testers → prioritize non-human steps. synth_test R1 done via code/spec. Next: synthesize (max 3 fixes) then finance/decide. #4 recruitment parallel, not blocking lab."
+  "notes": "Build: only P0 timer state persist/restore. Skip market. After merge: synth_test with newbie, power_user, chaos."
 }
