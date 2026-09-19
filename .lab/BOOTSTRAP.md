@@ -51,3 +51,14 @@
 - Do not change app product code in this setup PR unless `auftrag` is `build` (it is not).
 - Do not invent market sizes, revenue, or user counts.
 - Do not erase existing agent playbooks.
+
+
+## Importiert nach `.lab/agents/imported/`
+| Datei | Original |
+|-------|----------|
+| `AGENTS.md` | `/AGENTS.md` (Root wird zusätzlich um Lab-Kurzvertrag ergänzt) |
+| `AGENT_TEAM.md` | `/docs/AGENT_TEAM.md` |
+| `AGENT_HANDOFF.md` | `/docs/AGENT_HANDOFF.md` |
+| `copilot-instructions.md` | `/.github/copilot-instructions.md` |
+
+Bestehende Grok-Rollen (FF-*, Orchestrator), Cline und Copilot bleiben — Lab verdrahtet sie, ersetzt sie nicht.
