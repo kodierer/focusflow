@@ -1,5 +1,11 @@
 # AGENTS.md — FocusFlow
 
+## Shared handoff (Copilot + Grok Bot)
+
+- **Read first:** [`docs/AGENT_HANDOFF.md`](docs/AGENT_HANDOFF.md) — current status, next steps, role split.
+- After meaningful work (Play, site, launch blockers, or code that changes launch status), **update that file** and commit.
+- Older snapshot: `UEBERGABE_DOKUMENTATION.md` (May 2026 bugs) — verify before fixing; launch docs in `docs/` take precedence for Play work.
+
 ## CI must stay green
 
 - Pull requests and pushes to `main` / `develop` run `.github/workflows/ci.yml` (`test`, `lintDebug`, `assembleDebug`).
