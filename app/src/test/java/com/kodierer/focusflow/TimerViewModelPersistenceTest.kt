@@ -47,6 +47,8 @@ class TimerViewModelPersistenceTest {
         whenever(mockSessionPrefs.edit()).thenReturn(mockSessionEditor)
         whenever(mockSessionEditor.putInt(any(), any())).thenReturn(mockSessionEditor)
         whenever(mockSessionEditor.putString(any(), any())).thenReturn(mockSessionEditor)
+        whenever(mockSessionEditor.putBoolean(any(), any())).thenReturn(mockSessionEditor)
+        whenever(mockSessionEditor.remove(any())).thenReturn(mockSessionEditor)
         whenever(mockSessionEditor.apply()).then { /* no-op */ }
 
         // Analytics repo prefs
@@ -58,6 +60,9 @@ class TimerViewModelPersistenceTest {
 
         // Default: no previous data
         whenever(mockSessionPrefs.getInt(any(), eq(0))).thenReturn(0)
+        whenever(mockSessionPrefs.getInt("timer_time_left", -1)).thenReturn(-1)
+        whenever(mockSessionPrefs.getBoolean(any(), eq(false))).thenReturn(false)
+        whenever(mockSessionPrefs.getBoolean(any(), eq(true))).thenReturn(true)
         whenever(mockSessionPrefs.getString("today_date", "")).thenReturn(today)
         whenever(mockAnalyticsPrefs.getInt(any(), eq(0))).thenReturn(0)
     }
@@ -90,6 +95,23 @@ class TimerViewModelPersistenceTest {
         // Because date is old, stats should be reset to zero for the new day
         assertEquals(0, viewModel.state.value.sessionsCompleted)
         assertEquals(0, viewModel.state.value.totalFocusMinutes)
+    }
+
+    @Test
+    fun viewModel_restores_timer_state_on_init() {
+        whenever(mockSessionPrefs.getInt("timer_time_left", -1)).thenReturn(900)
+        whenever(mockSessionPrefs.getBoolean("timer_is_work_session", true)).thenReturn(false)
+        whenever(mockSessionPrefs.getInt("timer_work_minutes", 25)).thenReturn(30)
+        whenever(mockSessionPrefs.getInt("timer_break_minutes", 5)).thenReturn(10)
+        whenever(mockSessionPrefs.getBoolean("timer_is_running", false)).thenReturn(false)
+
+        viewModel = TimerViewModel(mockContext)
+
+        assertEquals(900, viewModel.state.value.timeLeft)
+        assertFalse(viewModel.state.value.isWorkSession)
+        assertEquals(30, viewModel.state.value.workMinutes)
+        assertEquals(10, viewModel.state.value.breakMinutes)
+        assertFalse(viewModel.state.value.isRunning)
     }
 
     @Test

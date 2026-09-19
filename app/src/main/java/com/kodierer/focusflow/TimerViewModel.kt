@@ -40,6 +40,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         try {
             context?.let { NotificationHelper.createNotificationChannel(it) }
             loadPersistedStats()
+            restoreTimerState()
         } catch (e: Exception) {
             android.util.Log.e("TimerViewModel", "Init error: ${e.message}")
         }
@@ -62,11 +63,38 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         )
     }
 
+    private fun restoreTimerState() {
+        val saved = sessionRepo?.getTimerState() ?: return
+        _state.value = _state.value.copy(
+            timeLeft = saved.timeLeft,
+            isWorkSession = saved.isWorkSession,
+            workMinutes = saved.workMinutes,
+            breakMinutes = saved.breakMinutes,
+            isRunning = false
+        )
+
+        if (saved.isRunning) {
+            startTimer()
+        }
+    }
+
+    private fun persistTimerState(state: TimerState = _state.value, isRunningOverride: Boolean? = null) {
+        sessionRepo?.saveTimerState(
+            timeLeft = state.timeLeft,
+            isWorkSession = state.isWorkSession,
+            workMinutes = state.workMinutes,
+            breakMinutes = state.breakMinutes,
+            isRunning = isRunningOverride ?: state.isRunning
+        )
+    }
+
     fun startTimer() {
         val currentState = _state.value
         if (currentState.isRunning) return
 
-        _state.value = currentState.copy(isRunning = true)
+        val startedState = currentState.copy(isRunning = true)
+        _state.value = startedState
+        persistTimerState(startedState)
 
         if (timerHandler == null) {
             timerHandler = Handler(Looper.getMainLooper())
@@ -76,7 +104,9 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
             override fun run() {
                 val state = _state.value
                 if (state.isRunning && state.timeLeft > 0) {
-                    _state.value = state.copy(timeLeft = state.timeLeft - 1)
+                    val updatedState = state.copy(timeLeft = state.timeLeft - 1)
+                    _state.value = updatedState
+                    persistTimerState(updatedState)
                     timerHandler?.postDelayed(this, 1000)
                 } else if (state.isRunning && state.timeLeft == 0) {
                     timerHandler?.removeCallbacks(this)
@@ -92,7 +122,9 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         if (!currentState.isRunning) return
 
         timerRunnable?.let { timerHandler?.removeCallbacks(it) }
-        _state.value = currentState.copy(isRunning = false)
+        val pausedState = currentState.copy(isRunning = false)
+        _state.value = pausedState
+        persistTimerState(pausedState)
     }
 
     fun resetTimer() {
@@ -103,10 +135,12 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         } else {
             state.breakMinutes * 60
         }
-        _state.value = state.copy(
+        val resetState = state.copy(
             timeLeft = resetTime,
             isRunning = false
         )
+        _state.value = resetState
+        persistTimerState(resetState)
     }
 
     fun toggleSession() {
@@ -127,6 +161,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
             )
         }
         _state.value = newState
+        persistTimerState(newState)
         startTimer()  // This will set isRunning=true and start the timer
     }
 
@@ -153,6 +188,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
             )
         }
         _state.value = newState
+        persistTimerState(newState)
 
         // === PERSISTENCE: Save progress (the big attractiveness win - stats survive restarts!) ===
         if (isFinishingWork) {
@@ -183,6 +219,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
                 timeLeft = if (state.isWorkSession) minutes * 60 else state.timeLeft
             )
             _state.value = newState
+            persistTimerState(newState)
         }
     }
 
@@ -194,11 +231,13 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
                 timeLeft = if (!state.isWorkSession) minutes * 60 else state.timeLeft
             )
             _state.value = newState
+            persistTimerState(newState)
         }
     }
 
     override fun onCleared() {
         timerRunnable?.let { timerHandler?.removeCallbacks(it) }
+        persistTimerState()
         super.onCleared()
     }
 }
