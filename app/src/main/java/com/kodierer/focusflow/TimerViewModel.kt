@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.kodierer.focusflow.data.AnalyticsRepository
 import com.kodierer.focusflow.data.PersistedTimerState
 import com.kodierer.focusflow.data.SessionRepository
+import com.kodierer.focusflow.services.TimerForegroundService
 import com.kodierer.focusflow.utils.HapticFeedback
 import com.kodierer.focusflow.utils.NotificationHelper
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -75,6 +76,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
 
         _state.value = currentState.copy(isRunning = true)
         saveCurrentTimerState()
+        syncForegroundService(_state.value)
 
         if (timerHandler == null) {
             timerHandler = createMainHandlerOrNull()
@@ -90,6 +92,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
                 if (state.isRunning && state.timeLeft > 0) {
                     _state.value = state.copy(timeLeft = state.timeLeft - 1)
                     saveCurrentTimerState()
+                    syncForegroundService(_state.value)
                     timerHandler?.postDelayed(this, 1000)
                 } else if (state.isRunning && state.timeLeft == 0) {
                     timerHandler?.removeCallbacks(this)
@@ -107,6 +110,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         timerRunnable?.let { timerHandler?.removeCallbacks(it) }
         _state.value = currentState.copy(isRunning = false)
         saveCurrentTimerState()
+        stopForegroundService()
     }
 
     fun resetTimer() {
@@ -122,6 +126,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
             isRunning = false
         )
         saveCurrentTimerState()
+        stopForegroundService()
     }
 
     fun toggleSession() {
@@ -170,6 +175,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
         }
         _state.value = newState
         saveCurrentTimerState()
+        stopForegroundService()
 
         // === PERSISTENCE: Save progress (the big attractiveness win - stats survive restarts!) ===
         if (isFinishingWork) {
@@ -341,6 +347,7 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
                 if (state.isRunning && state.timeLeft > 0) {
                     _state.value = state.copy(timeLeft = state.timeLeft - 1)
                     saveCurrentTimerState()
+                    syncForegroundService(_state.value)
                     timerHandler?.postDelayed(this, 1000)
                 } else if (state.isRunning && state.timeLeft == 0) {
                     timerHandler?.removeCallbacks(this)
@@ -348,7 +355,26 @@ class TimerViewModel(private val context: Context? = null) : ViewModel() {
                 }
             }
         }
+        syncForegroundService(_state.value)
         timerHandler?.postDelayed(timerRunnable!!, 1000)
+    }
+
+    private fun syncForegroundService(state: TimerState) {
+        val appContext = context ?: return
+        if (state.isRunning) {
+            TimerForegroundService.startOrUpdate(
+                context = appContext,
+                timeLeftSeconds = state.timeLeft,
+                isWorkSession = state.isWorkSession
+            )
+        } else {
+            stopForegroundService()
+        }
+    }
+
+    private fun stopForegroundService() {
+        val appContext = context ?: return
+        TimerForegroundService.stop(appContext)
     }
 
     private fun createMainHandlerOrNull(): Handler? {
