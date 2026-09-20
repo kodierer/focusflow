@@ -1,0 +1,38 @@
+{
+  "persona_id": "power_user",
+  "iteration": 0,
+  "task_success": true,
+  "abort_reason": null,
+  "scores": {
+    "usability": 4,
+    "fun": 3,
+    "trust": 4,
+    "clarity": 4,
+    "value": 3
+  },
+  "top_frictions": [
+    "Keine lange History/Widgets — bewusst Launch-Freeze",
+    "toggleSession startet weiter sofort",
+    "Statusleisten-Glyph fehlt — Notification muss reichen"
+  ],
+  "recommend_to_friend": "Als Alltags-Timer jetzt glaubwürdig (Restore + FGS-Notification); Power-Features weiter post-Production.",
+  "evidence": "PR #12 on main; FGS+NotificationHelper at ee1cbd7; human feedback #13 closed partial",
+  "suggested_fixes": [
+    {
+      "fix": "Explizites Session-wechseln ohne Sofort-Start (weiter P1)",
+      "effort": "S"
+    },
+    {
+      "fix": "Kein neuer Build für Glyph — akzeptiert",
+      "effort": "S"
+    },
+    {
+      "fix": "Docs: was nach Kill erwartet wird (Wanduhr-Korrektur)",
+      "effort": "S"
+    }
+  ],
+  "status": "done",
+  "role": "tester",
+  "created_at": "2026-09-20T14:12:07Z",
+  "method_note": "synth_r2_code_plus_human_calibration_after_11_13"
+}

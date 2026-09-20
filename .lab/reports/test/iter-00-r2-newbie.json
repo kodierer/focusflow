@@ -1,0 +1,38 @@
+{
+  "persona_id": "newbie",
+  "iteration": 0,
+  "task_success": true,
+  "abort_reason": null,
+  "scores": {
+    "usability": 4,
+    "fun": 3,
+    "trust": 4,
+    "clarity": 3,
+    "value": 4
+  },
+  "top_frictions": [
+    "Auto-Continue nach Session-Ende kann noch überrumpeln (unverändert aus R1)",
+    "Ongoing Notification hilft, Statusleisten-Glyph oft unsichtbar (Pixel) — Verwirrung möglich",
+    "Arbeit/Pause-Klarheit in UI weiter nur teilweise aus Code ableitbar"
+  ],
+  "recommend_to_friend": "Würde ich zum Fokussieren empfehlen — Kill/Restore und Hintergrund-Hinweis sind spürbar besser als R1.",
+  "evidence": "Human kill-test PASS #11/#12; #13 notification present / glyph wontfix; TimerViewModel persist+restore on main",
+  "suggested_fixes": [
+    {
+      "fix": "Auto-Continue Opt-in oder kurzer Delay (P1 aus R1)",
+      "effort": "M"
+    },
+    {
+      "fix": "Notification-Text sehr klar: „Fokus läuft — tippen zum Öffnen“",
+      "effort": "S"
+    },
+    {
+      "fix": "ee1cbd7 (#13) auf GitHub main pushen/mergen falls nur lokal",
+      "effort": "S"
+    }
+  ],
+  "status": "done",
+  "role": "tester",
+  "created_at": "2026-09-20T14:12:07Z",
+  "method_note": "synth_r2_code_plus_human_calibration_after_11_13"
+}

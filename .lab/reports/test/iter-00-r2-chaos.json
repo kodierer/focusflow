@@ -1,0 +1,38 @@
+{
+  "persona_id": "chaos",
+  "iteration": 0,
+  "task_success": true,
+  "abort_reason": null,
+  "scores": {
+    "usability": 4,
+    "fun": 3,
+    "trust": 4,
+    "clarity": 4,
+    "value": 4
+  },
+  "top_frictions": [
+    "Kernaufgabe 6 (Kill ohne State-Bruch) per Human-Test PASS — großer Sprung vs R1",
+    "Notification-only Sichtbarkeit je nach OEM",
+    "Edge: FGS-Commit ggf. nicht auf remote main — Repro auf Clean-Clone prüfen"
+  ],
+  "recommend_to_friend": "Chaos-Blocker aus R1 weitgehend entschärft; App wirkt für Kill/Background erwachsen genug für Closed Testing.",
+  "evidence": "Human Pixel kill-test; SessionRepository timer prefs; TimerForegroundService+ongoing notification (ee1cbd7)",
+  "suggested_fixes": [
+    {
+      "fix": "Sicherstellen #13-Code ist auf origin/main",
+      "effort": "S"
+    },
+    {
+      "fix": "Tech-QA: Kill mid-session + Pause + Notification dismiss manuell checken",
+      "effort": "S"
+    },
+    {
+      "fix": "Kein weiterer Reliability-Build nötig außer Regression",
+      "effort": "S"
+    }
+  ],
+  "status": "done",
+  "role": "tester",
+  "created_at": "2026-09-20T14:12:07Z",
+  "method_note": "synth_r2_code_plus_human_calibration_after_11_13"
+}
