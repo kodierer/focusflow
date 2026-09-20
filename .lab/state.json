@@ -1,7 +1,7 @@
 {
   "project_name": "FocusFlow",
   "iteration": 0,
-  "phase": "market",
+  "phase": "decide",
   "repo_ref": "main",
   "active_ticket": "https://github.com/kodierer/focusflow/issues/15",
   "maturity": {
@@ -13,21 +13,22 @@
     "risk": null
   },
   "last_delta": {
-    "iter_00_market": "market brief + devil; positioning local DE timer vs Forest/Focus To-Do"
+    "iter_00": "auto finance+decide after market → ask_human Closed Testing"
   },
   "budget": {
     "currency": "EUR",
     "cap_total": null,
     "spent_est": 0,
     "spent_copilot_requests_est": 0,
-    "spent_human_hours_est": 1.5,
+    "spent_human_hours_est": 1.75,
     "last_iteration_est": 0.25
   },
-  "finance_recommendation": "continue_cheap",
+  "finance_recommendation": "ask_human",
   "human_eval_due": false,
   "stagnant_iterations": 0,
   "max_iterations": 8,
   "max_changes_per_iteration": 1,
-  "status": "ready",
-  "notes": "Market done (#15). Next: finance/decide or pause. ee1cbd7 on main per PO. Prefer Closed Testing when real testers exist; optional Auto-Continue polish only."
+  "status": "blocked",
+  "blocked_reason": "ask_human: Closed Testing / real testers (#2/#4) — feature builds paused",
+  "notes": "Pipeline auto: market→finance→decide done. Next department: Play/Closed Testing ops. No new lab-build unless PO overrides."
 }

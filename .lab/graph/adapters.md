@@ -3,32 +3,20 @@
 ## Grok (Desktop / Bot)
 - Liest `inbox/`, schreibt `outbox/` und Reports
 - Nutzt Systemprompts aus `.lab/agents/`
-- Orchestriert Phasen laut `state.json` + `graph/loop.md`
+- Orchestriert Phasen laut `state.json` + `graph/loop.md` + **`pipeline.md` (Zahnrad)**
 - Schätzt Token/Aufwand grob in `state.budget` nach Rollen
+- **Nach fertigem Report sofort nächste Rolle** — kein Chat-OK
 
 ## GitHub Copilot Chat
 - Mensch + Pair am Code
-- **Kein zweiter Chef** — folgt Issue/ACs, orchestriert nicht die Lab-Phase
+- **Kein zweiter Chef**
 
 ## GitHub Copilot Coding Agent
-- Standard Coding-Worker (`github_copilot`)
-- PM/Engineer-Brief erzeugt Issue aus `.github/ISSUE_TEMPLATE/lab-build.md`
-- Assignee: Copilot; Ergebnis: PR
-- Nach Merge: `state.repo_ref` aktualisieren, `changelog.md` Eintrag
-- Copilot-Requests grob in `spent_copilot_requests_est` schätzen
+- Standard Coding-Worker; TDD + autonom bis Push
+- Nach Merge: Orchestrator dreht nächstes Zahnrad (tech_qa/synth)
 
-## Grok Build
-- Nur Fallback wenn Copilot blockiert (`grok_build`)
-- Kein OpenHands anlegen, außer Mensch fordert es
-
-## Cline
-- Bleibt Engineer-Option laut Team-Playbook; nicht parallel denselben Ticket-Scope wie Copilot Coding Agent
-
-
-## Ticket-Spur (neu, verbindlich)
-- Jede Lab-Rolle dokumentiert in **GitHub Issues** (Kommentar oder Issue) — siehe `.lab/graph/ticket_documentation.md`.
-- Outbox allein reicht nicht für den Menschen.
+## Ticket-Spur
+- Jede Rolle dokumentiert in GitHub Issues — `ticket_documentation.md`
 
 ## Meta-Steward
-- Rolle: `.lab/agents/meta_steward.md`
-- Prüft Setup/Workflow kontinuierlich; schreibt Issue + Outbox.
+- `agents/meta_steward.md` — prüft ob Handoffs hängen geblieben sind

@@ -1,0 +1,36 @@
+{
+  "burn_this_iteration_est": null,
+  "burn_total_est": null,
+  "budget_remaining_est": null,
+  "cost_per_maturity_point": null,
+  "score_delta_summary": "R2: Kill/Restore PASS; Notification partial OK; Market: Positionierung klar, Store ohne reale Tester blockiert; kein Budget-Cap.",
+  "recommendation": "ask_human",
+  "reasons": [
+    "Nächster Wert = Closed Testing mit echten Google-Testern (#2/#4), nicht weiteres Feature-Build",
+    "Budget-Cap weiterhin TODO — kein teures Lab-continue",
+    "Auto-Continue nur optionaler Polish — Grenznutzen klein vs. Store-Zugang",
+    "Market Devil: ohne Distribution bleibt Produkt unsichtbar",
+    "Mensch entscheidet Tester-Rekrutierung / Timing (kann nicht vollautomatisch Fake-Accounts anlegen)"
+  ],
+  "assumptions_used": [
+    "cap_total TODO",
+    "keine realen Tester",
+    "ee1cbd7 on main",
+    "positioning_one_liner from market brief"
+  ],
+  "next_round_should_skip": [
+    "market",
+    "feature_build",
+    "glyph"
+  ],
+  "status": "done",
+  "iteration": 0,
+  "role": "finance",
+  "created_at": "2026-09-20T14:21:20Z",
+  "handoff_to": "closed_testing_ops",
+  "suggested_human_actions": [
+    "Closed Testing: echte Tester (#4) und Alpha-Submit (#2)",
+    "Optional später: Auto-Continue lab-build",
+    "Listing-Text an positioning_one_liner aus Market-Brief ausrichten"
+  ]
+}
