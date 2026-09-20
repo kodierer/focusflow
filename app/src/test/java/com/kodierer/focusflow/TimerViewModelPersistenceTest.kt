@@ -46,6 +46,8 @@ class TimerViewModelPersistenceTest {
             .thenReturn(mockSessionPrefs)
         whenever(mockSessionPrefs.edit()).thenReturn(mockSessionEditor)
         whenever(mockSessionEditor.putInt(any(), any())).thenReturn(mockSessionEditor)
+        whenever(mockSessionEditor.putBoolean(any(), any())).thenReturn(mockSessionEditor)
+        whenever(mockSessionEditor.putLong(any(), any())).thenReturn(mockSessionEditor)
         whenever(mockSessionEditor.putString(any(), any())).thenReturn(mockSessionEditor)
         whenever(mockSessionEditor.apply()).then { /* no-op */ }
 
@@ -58,6 +60,10 @@ class TimerViewModelPersistenceTest {
 
         // Default: no previous data
         whenever(mockSessionPrefs.getInt(any(), eq(0))).thenReturn(0)
+        whenever(mockSessionPrefs.getBoolean(any(), eq(false))).thenReturn(false)
+        whenever(mockSessionPrefs.getBoolean(any(), eq(true))).thenReturn(true)
+        whenever(mockSessionPrefs.getLong(any(), eq(0L))).thenReturn(0L)
+        whenever(mockSessionPrefs.contains(any())).thenReturn(false)
         whenever(mockSessionPrefs.getString("today_date", "")).thenReturn(today)
         whenever(mockAnalyticsPrefs.getInt(any(), eq(0))).thenReturn(0)
     }
@@ -119,10 +125,70 @@ class TimerViewModelPersistenceTest {
     @Test
     fun settings_changes_are_blocked_while_timer_is_running() {
         viewModel = TimerViewModel(mockContext)
+        viewModel.startTimer()
 
-        // We simulate "running" state directly since real timer requires Looper
-        // (real timer logic is hard to unit test without Robolectric)
-        // For now we test the set* methods respect the isRunning flag in state
-        // This test is limited until timer is refactored to be testable.
+        viewModel.setWorkMinutes(40)
+        viewModel.setBreakMinutes(12)
+
+        assertEquals(25, viewModel.state.value.workMinutes)
+        assertEquals(5, viewModel.state.value.breakMinutes)
+        assertTrue(viewModel.state.value.isRunning)
+    }
+
+    @Test
+    fun restores_paused_timer_state_from_preferences() {
+        whenever(mockSessionPrefs.contains("timer_time_left")).thenReturn(true)
+        whenever(mockSessionPrefs.getInt("timer_work_minutes", 25)).thenReturn(30)
+        whenever(mockSessionPrefs.getInt("timer_break_minutes", 5)).thenReturn(8)
+        whenever(mockSessionPrefs.getInt("timer_time_left", 25 * 60)).thenReturn(901)
+        whenever(mockSessionPrefs.getBoolean("timer_is_running", false)).thenReturn(false)
+        whenever(mockSessionPrefs.getBoolean("timer_is_work_session", true)).thenReturn(false)
+        whenever(mockSessionPrefs.getLong("timer_saved_at", 0L)).thenReturn(System.currentTimeMillis() - 5_000)
+
+        viewModel = TimerViewModel(mockContext)
+
+        assertEquals(30, viewModel.state.value.workMinutes)
+        assertEquals(8, viewModel.state.value.breakMinutes)
+        assertEquals(901, viewModel.state.value.timeLeft)
+        assertFalse(viewModel.state.value.isRunning)
+        assertFalse(viewModel.state.value.isWorkSession)
+    }
+
+    @Test
+    fun restores_running_timer_with_elapsed_time_correction() {
+        whenever(mockSessionPrefs.contains("timer_time_left")).thenReturn(true)
+        whenever(mockSessionPrefs.getInt("timer_work_minutes", 25)).thenReturn(25)
+        whenever(mockSessionPrefs.getInt("timer_break_minutes", 5)).thenReturn(5)
+        whenever(mockSessionPrefs.getInt("timer_time_left", 25 * 60)).thenReturn(600)
+        whenever(mockSessionPrefs.getBoolean("timer_is_running", false)).thenReturn(true)
+        whenever(mockSessionPrefs.getBoolean("timer_is_work_session", true)).thenReturn(true)
+        whenever(mockSessionPrefs.getLong("timer_saved_at", 0L)).thenReturn(System.currentTimeMillis() - 4_000)
+
+        viewModel = TimerViewModel(mockContext)
+
+        assertTrue(viewModel.state.value.isRunning)
+        assertTrue(viewModel.state.value.isWorkSession)
+        assertTrue(viewModel.state.value.timeLeft in 595..596)
+    }
+
+    @Test
+    fun restores_running_timer_across_completed_work_session() {
+        whenever(mockSessionPrefs.contains("timer_time_left")).thenReturn(true)
+        whenever(mockSessionPrefs.getInt("timer_work_minutes", 25)).thenReturn(25)
+        whenever(mockSessionPrefs.getInt("timer_break_minutes", 5)).thenReturn(5)
+        whenever(mockSessionPrefs.getInt("timer_time_left", 25 * 60)).thenReturn(2)
+        whenever(mockSessionPrefs.getBoolean("timer_is_running", false)).thenReturn(true)
+        whenever(mockSessionPrefs.getBoolean("timer_is_work_session", true)).thenReturn(true)
+        whenever(mockSessionPrefs.getLong("timer_saved_at", 0L)).thenReturn(System.currentTimeMillis() - 5_000)
+        whenever(mockSessionPrefs.getInt("sessions_completed", 0)).thenReturn(0)
+        whenever(mockSessionPrefs.getInt("total_focus_minutes", 0)).thenReturn(0)
+
+        viewModel = TimerViewModel(mockContext)
+
+        assertTrue(viewModel.state.value.isRunning)
+        assertFalse(viewModel.state.value.isWorkSession)
+        assertTrue(viewModel.state.value.timeLeft in 297..298)
+        verify(mockSessionEditor).putInt("sessions_completed", 1)
+        verify(mockSessionEditor).putInt("total_focus_minutes", 25)
     }
 }
