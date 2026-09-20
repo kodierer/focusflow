@@ -1,9 +1,9 @@
 {
   "project_name": "FocusFlow",
   "iteration": 0,
-  "phase": "synthesize",
+  "phase": "market",
   "repo_ref": "main",
-  "active_ticket": "https://github.com/kodierer/focusflow/issues/14",
+  "active_ticket": "https://github.com/kodierer/focusflow/issues/15",
   "maturity": {
     "functional": null,
     "ux": null,
@@ -13,14 +13,14 @@
     "risk": null
   },
   "last_delta": {
-    "iter_00_r2": "synth_test R2 after #11/#13 — kill PASS; notification partial; glyph wontfix"
+    "iter_00_market": "market brief + devil; positioning local DE timer vs Forest/Focus To-Do"
   },
   "budget": {
     "currency": "EUR",
     "cap_total": null,
     "spent_est": 0,
     "spent_copilot_requests_est": 0,
-    "spent_human_hours_est": 1.25,
+    "spent_human_hours_est": 1.5,
     "last_iteration_est": 0.25
   },
   "finance_recommendation": "continue_cheap",
@@ -29,5 +29,5 @@
   "max_iterations": 8,
   "max_changes_per_iteration": 1,
   "status": "ready",
-  "notes": "R2 synth done (#14). Prefer ensure ee1cbd7 on remote main; optional Auto-Continue polish; else pause lab / wait for real testers for Closed Testing."
+  "notes": "Market done (#15). Next: finance/decide or pause. ee1cbd7 on main per PO. Prefer Closed Testing when real testers exist; optional Auto-Continue polish only."
 }

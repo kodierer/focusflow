@@ -1,0 +1,63 @@
+{
+  "icp": "Erwachsene Android-Nutzer:innen (primär DE), die kurze Fokusblöcke brauchen (Lernen, Freelance, Büro) und einen schlanken, lokalen Timer ohne Account-Zwang wollen.",
+  "competitors": [
+    {
+      "name": "Forest",
+      "source": "https://play.google.com/store/apps/details?id=cc.forestapp ; https://forestapp.cc/",
+      "better": "Starke Marke/Gamification (Baum wächst), App-Blocking, Social/Impact-Story; Store-Präsenz und Sichtbarkeit.",
+      "worse": "Schwerer/feature-reicher; Abo-/Monetarisierungsdruck; nicht “minimal lokal”."
+    },
+    {
+      "name": "Focus To-Do",
+      "source": "https://productivity-apps.com/apps/compare/alternatives/forest (Vergleichsartikel)",
+      "better": "Timer + To-do/Projekte/Reports/Sync — All-in-one.",
+      "worse": "Paywall/Komplexität; nicht schlank."
+    },
+    {
+      "name": "Goodtime (u. a. minimal/OSS-Gattung)",
+      "source": "https://productivity-apps.com/apps/compare/alternatives/forest",
+      "better": "Minimal, oft ad-frei/tracking-arm, Statistik ohne Abo-Zwang (laut Vergleich).",
+      "worse": "Weniger Marke/Polishing als Forest; genaue Feature-Parität zu FocusFlow: unknown ohne eigenen Store-Check."
+    },
+    {
+      "name": "OSS Compose-Timer (z. B. Zon, Promodo, Focus-Modes)",
+      "source": "https://github.com/vrn7712/Zon ; https://github.com/thebytearray/promodo ; https://github.com/adnanrangrej/Focus-Modes-App",
+      "better": "Referenz für FGS/Widgets/Clean Arch — Ideen, nicht Store-Konkurrenz 1:1.",
+      "worse": "Keine vergleichbare Store-Distribution; Lizenzen beachten (z. B. GPL bei Zon)."
+    }
+  ],
+  "feature_gaps": [
+    "P1 optional: Auto-Continue entschärfen (Synth R1/R2)",
+    "Differenzierung vs. Forest: bewusst NICHT Gamification/Blocker nachbauen — eher Privacy/lokal/DE-Klarheit",
+    "Statusleisten-Glyph: wontfix (#13 closed partial)",
+    "Task-Listen/Sync: bewusst Out-of-scope vor Production (HANDOFF)"
+  ],
+  "positioning_one_liner": "FocusFlow: schlanker, lokaler Fokus-Timer für Android — Arbeit/Pause, Restore nach Kill, laufende Notification; ohne Account- und Feature-Ballast.",
+  "risks": [
+    "Kategorie von Forest/Focus To-Do dominiert Wahrnehmung — “nur Timer” wirkt austauschbar",
+    "Closed Testing / reale Tester fehlen noch — Store-Zugang blockiert",
+    "Bezahlte Marktreports (Dataintelo etc.) enthalten Zahlen, die wir nicht als Fakt übernehmen ohne Zugang/Prüfung",
+    "ee1cbd7 jetzt auf main — gut; sonst wäre Notification-Lücke auf Clean-Clones ein Risiko gewesen"
+  ],
+  "unknowns": [
+    "TAM/SAM/SOM Fokus-Pomodoro-Apps: unknown (keine belastbare Primärquelle mit freiem Vollzugang)",
+    "Forest “60M users”: Store/Marketing-Claim — als Claim notiert, nicht verifiziert",
+    "FocusFlow Installs/Retention/Conversion: unknown (noch kein Production)",
+    "Preis/Produktart FocusFlow: TODO in assumptions.md",
+    "DE-spezifische Konkurrenz-Rankings Play Store: none_search_not_run (kein Live-Store-Crawl in diesem Lauf)"
+  ],
+  "sources": [
+    "https://play.google.com/store/apps/details?id=cc.forestapp",
+    "https://forestapp.cc/",
+    "https://productivity-apps.com/apps/compare/alternatives/forest",
+    "https://github.com/vrn7712/Zon",
+    "https://github.com/thebytearray/promodo",
+    "https://github.com/adnanrangrej/Focus-Modes-App",
+    "https://dataintelo.com/report/focus-pomodoro-ai-app-market (Paywall-Report — Zahlen nicht übernommen)"
+  ],
+  "devil_appendix": "Siehe .lab/outbox/iter-00-market-devil.md",
+  "status": "done",
+  "iteration": 0,
+  "role": "market_researcher",
+  "created_at": "2026-09-20T14:17:22Z"
+}
