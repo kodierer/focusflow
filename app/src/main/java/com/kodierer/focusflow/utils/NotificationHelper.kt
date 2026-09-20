@@ -15,8 +15,6 @@ object NotificationHelper {
     private const val ONGOING_CHANNEL_ID = "focus_timer_ongoing_channel_v3"
     private const val COMPLETION_NOTIFICATION_ID = 1001
     const val ONGOING_NOTIFICATION_ID = 1002
-    // Value matches Notification.FOREGROUND_SERVICE_IMMEDIATE for API 31+.
-    private const val FOREGROUND_SERVICE_IMMEDIATE_BEHAVIOR = 1
     private const val COMPLETION_CHANNEL_NAME = "Focus Timer Abschluss"
     private const val ONGOING_CHANNEL_NAME = "Focus Timer Laufend"
 
@@ -67,7 +65,7 @@ object NotificationHelper {
         .setOnlyAlertOnce(true)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
         .setCategory(NotificationCompat.CATEGORY_SERVICE)
-        .setForegroundServiceBehavior(FOREGROUND_SERVICE_IMMEDIATE_BEHAVIOR)
+        .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
         .build()
 
     fun cancelOngoingTimerNotification(context: Context) {
