@@ -40,8 +40,8 @@ class BackupPolicyTest {
             text.contains(Regex("Auto Backup|Cloud Backup|Cloud-Backup", RegexOption.IGNORE_CASE))
         )
         assertTrue(
-            "privacy.html muss Löschung beim Deinstallieren/Reset erwähnen",
-            text.contains(Regex("deinstall|In-App-Reset|in-app reset", RegexOption.IGNORE_CASE))
+            "privacy.html muss Löschung beim Deinstallieren erwähnen",
+            text.contains(Regex("deinstall", RegexOption.IGNORE_CASE))
         )
     }
 
